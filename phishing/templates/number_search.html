@@ -1,5 +1,6 @@
 {% extends "./base.html" %}
 {% block main %}
+<!-- 전체 폰트 조정하기 -->
 <div class="section section-contact">
     <div class="container">
         <div class="text-area">
@@ -34,6 +35,8 @@
         <div class="title-area">
             <h2>조회 결과</h2>
             <div class="separator separator-danger">✻</div>
+            <!-- 입력한 번호 출력 추가하기 -->
+            <h5 class="text-gray">입력하신 " "번에 대한 조회 결과입니다.</h5>
         </div>
 
         <div class="row">
@@ -42,7 +45,7 @@
                     <div class="icon">
                         <i class="pe-7s-check"></i>
                     </div>
-                    <h2>조회 횟수</h2>
+                    <h3>조회 횟수</h3>
                     {% comment %} <h5 class="text-gray">Enterprises and small businesses</h5> {% endcomment %}
                     <div class="number text-danger">
                         42
@@ -63,8 +66,8 @@
                     <div class="icon">
                         <i class="pe-7s-attention"></i>
                     </div>
-                    <h2>해당 번호는</h2>
-                    <div class="number text-danger">
+                    <h3>해당 번호는</h3>
+                    <div class="number text-danger text-sm">
                         의심되는 번호
                     </div>
                     <h3>입니다.</h3>

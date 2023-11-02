@@ -17,5 +17,11 @@ def SMS_mail(request):
 def text(request):
     return render(request, 'text.html')
 
+def capture(request):
+    return render(request, 'capture.html')
+
 def rel_org(request):
     return render(request, 'rel_organization.html')
+
+def victim_guide(request):
+    return render(request, 'victim_guide.html')
