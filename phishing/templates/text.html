@@ -1,0 +1,28 @@
+{% extends "./base.html" %}
+{% block main %}
+<div class="section section-contact">
+    <div class="container-fluid">
+        <div class="text-area">
+            <div class="title">
+                <h2>의심 문자 / 메일 조회</h2>
+                <div class="separator separator-danger">✻</div>
+                <h5 class="text-gray">의심되는 문자나 메일을 입력해주세요.</h5>
+            </div>
+
+        <div class="contact-form">
+            <form action="" method="post">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <textarea name="content" class="form-control" placeholder="Here you can write your nice text" rows="8"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-danger btn-fill pull-right">입력</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+</div>
+
+{% endblock %}
