@@ -8,5 +8,5 @@ def home(request):
 def test(request):
     return render(request, 'index.html')
 
-def number(request):
-    return render(request, 'number.html')
+def number_search(request):
+    return render(request, 'number_search.html')

@@ -5,7 +5,6 @@ app_name = 'phishing'
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('test/', views.test, name='test'),
     # path('')
-    path('number/', views.number, name='nuber')
+    path('number_search/', views.number_search, name='nuber_search')
 ]

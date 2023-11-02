@@ -1,0 +1,84 @@
+{% extends "./base.html" %}
+{% block main %}
+<div class="section section-contact">
+    <div class="container">
+        <div class="text-area">
+            <div class="title">
+                <h2>의심 번호 조회</h2>
+                <div class="separator separator-danger">✻</div>
+                <h5 class="text-gray">의심되는 전화번호, 계좌번호를 입력해주세요.</h5>
+            </div>
+
+        <div class="contact-form">
+            <form action="" method="post">
+                <div class="row">
+                    <div class="col-md-4 col-md-push-4">
+                        <div class="form-group">
+                            <input type="text" name="email" value="" placeholder="010-1234-5678, 000-000-00000" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <button type="button" class="btn btn-fill btn-danger">
+                            입력
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="section section-numbers" >
+    <div class="container">
+        <div class="title-area">
+            <h2>조회 결과</h2>
+            <div class="separator separator-danger">✻</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card card-plain">
+                    <div class="icon">
+                        <i class="pe-7s-check"></i>
+                    </div>
+                    <h2>조회 횟수</h2>
+                    {% comment %} <h5 class="text-gray">Enterprises and small businesses</h5> {% endcomment %}
+                    <div class="number text-danger">
+                        42
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card card-plain">
+                    <h3>의심번호 신고하기</h3>
+                    <button class="btn btn-fill btn-lg btn-danger">신고하기</button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card card-plain">
+                    <div class="icon">
+                        <i class="pe-7s-attention"></i>
+                    </div>
+                    <h2>해당 번호는</h2>
+                    <div class="number text-danger">
+                        의심되는 번호
+                    </div>
+                    <h3>입니다.</h3>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+{% comment %} <div class='section section-presentation-page'>
+    <div class="parallax filter filter-color-black">
+        <div class='row'>
+
+        </div>
+    </div>
+</div> {% endcomment %}
+
+
+{% endblock %}
