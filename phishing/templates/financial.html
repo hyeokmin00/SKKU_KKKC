@@ -9,9 +9,20 @@
             </div>
 
             <div class="section section-card-blog">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="text-area">
                         {% comment %} db 연결해서 유관기관 연락처 가져오기. 기관 유형별로 구분 {% endcomment %}
+                        <div class="row">
+                                <!-- 각 기관 정보 리스트로 입력하기. db 연결해서 정보 가져오기 -->
+                            <ul class="list-group list-group-flush">
+                                <a href="#" class="list-group-item">
+                                    <span style="font-size: 2em;">기관명</span>
+                                    <span style="font-size: 2em; padding: 1em;"></span>
+                                    <span style="font-size: 2em;">전화번호</span>
+                                </a>
+                            </ul>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
