@@ -20,6 +20,9 @@ def text(request):
 def capture(request):
     return render(request, 'capture.html')
 
+def call(request):
+    return render(request, 'call.html')
+
 def rel_org(request):
     return render(request, 'rel_organization.html')
 
