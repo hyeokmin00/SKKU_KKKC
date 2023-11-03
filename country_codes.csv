@@ -1,0 +1,218 @@
+,name_kr,name_eng,number,code_2,code_3
+0,가나,Ghana,233,GH,GHA
+1,가봉,Gabon,241,GA,GAB
+2,가이아나,Guyana,592,GY,GUY
+3,감비아,Gambia,220,GM,GMB
+4,괌,Guam,1671,GU,GUM
+5,과들루프,Guadeloupe,590,GP,GLP
+6,과테말라,Guatemala,502,GT,GTM
+7,그레나다,Grenada,1473,GD,GRD
+8,그리스,Greece,30,GR,GRC
+9,그린란드,Greenland,299,GL,GRL
+10,기니,Guinea,224,GN,GIN
+11,기니비사우,Guinea-Bissau,245,GW,GNB
+12,나미비아,Namibia,264,NA,NAM
+13,나우루,Nauru,674,NR,NRU
+14,나이지리아,Nigeria,234,NG,NGA
+15,남수단,South Sudan,211,SS,SSD
+16,남아프리카 공화국,South Africa,27,ZA,ZAF
+17,네덜란드,the Netherlands,31,NL,NLD
+18,네팔,Nepal,977,NP,NPL
+19,노르웨이,Norway,47,NO,NOR
+20,누벨칼레도니,New Caledonia,687,NC,NCL
+21,뉴질랜드,New Zealand,64,NZ,NZL
+22,니우에,Niue,683,NU,NIU
+23,니제르,Niger,227,NE,NER
+24,니카라과,Nicaragua,505,NI,NIC
+25,대한민국,Republic of Korea,82,KR,KOR
+26,덴마크,Denmark,45,DK,DNK
+27,도미니카 공화국,Dominican R.,1809,DO,DOM
+28,도미니카 연방,Dominica,1767,DM,DMA
+29,독일,Germany,49,DE,DEU
+30,동티모르,East Timor,670,TL,TLS
+31,라오스,Laos,856,LA,LAO
+32,라이베리아,Liberia,231,LR,LBR
+33,라트비아,Latvia,371,LV,LVA
+34,러시아,Russia,7,RU,RUS
+35,레바논,Lebanon,961,LB,LBN
+36,레소토,Lesotho,266,LS,LSO
+37,루마니아,Romania,40,RO,ROU
+38,룩셈부르크,Luxembourg,352,LU,LUX
+39,르완다,Rwanda,250,RW,RWA
+40,리비아,Libya,218,LY,LBY
+41,리투아니아,Lithuania,370,LT,LTU
+42,리히텐슈타인,Liechtenstein,423,LI,LIE
+43,마다가스카르,Madagascar,261,MG,MDG
+44,마르티니크,Martinique,596,MQ,MTQ
+45,마셜 제도,Marshall Islands,692,MH,MHL
+46,마요트,Mayotte,269,YT,MYT
+47,마카오,Macao,853,MO,MAC
+48,말라위,Malawi,265,MW,MWI
+49,말레이시아,Malaysia,60,MY,MYS
+50,말리,Mali,223,ML,MLI
+51,멕시코,Mexico,52,MX,MEX
+52,모나코,Monaco,377,MC,MCO
+53,모로코,Morocco,212,MA,MAR
+54,모리셔스,Mauritius,230,MU,MUS
+55,모리타니,Mauritania,222,MR,MRT
+56,모잠비크,Mozambique,258,MZ,MOZ
+57,몬테네그로,Montenegro,382,ME,MNE
+58,몬트세랫,Montserrat,1664,MS,MSR
+59,몰도바,Maldova,373,MD,MDA
+60,몰디브,Maldives,960,MV,MDV
+61,몰타,Malta,356,MT,MLT
+62,몽골,Mongolia,976,MN,MNG
+63,미국,United States of America,1,US,USA
+64,미얀마(버마,Myanmar,95,MM,MMR
+65,미크로네시아 연방,Micronesia,691,FM,FSM
+66,바누아투,Vanuatu,678,VU,VUT
+67,바레인,Bahrain,973,BH,BHR
+68,바베이도스,Barbados,1246,BB,BRB
+69,바티칸 시국,Vatican,379,VA,VAT
+70,바하마,Bahamas,1242,BS,BHS
+71,방글라데시,Bangladesh,880,BD,BGD
+72,버뮤다,Bermuda,1441,BM,BMU
+73,베냉,Benin,229,BJ,BEN
+74,베네수엘라,Venezuela,58,VE,VEN
+75,베트남,Vietnam,84,VN,VNM
+76,벨기에,Belgium,32,BE,BEL
+77,벨라루스,Belarus,375,BY,BLR
+78,벨리즈,Belize,501,BZ,BLZ
+79,보스니아 헤르체고비나,Bosnia and Herzegovina,387,BA,BIH
+80,보츠와나,Botswana,267,BW,BWA
+81,볼리비아,Bolivia,591,BO,BOL
+82,부룬디,Burundi,257,BI,BDI
+83,부르키나파소,Burkina Faso,226,BF,BFA
+84,부탄,Bhutan,975,BT,BTN
+85,북마케도니아,Macedonia,389,MK,MKD
+86,불가리아,Bulgaria,359,BG,BGR
+87,브라질,Brazil,55,BR,BRA
+88,브루나이,Brunei,673,BN,BRN
+89,사모아,Samoa,685,WS,WSM
+90,사우디아라비아,Saudi Arabia,966,SA,SAU
+91,산마리노,San Marino,378,SM,SMR
+92,생피에르 미클롱,Saint Pierre and Miquelon,508,PM,SPM
+93,서사하라,Western Sahara,212,EH,ESH
+94,세네갈,Senegal,221,SN,SEN
+95,세르비아,Serbia,381,RS,SRB
+96,세이셸,Seychelles,248,SC,SYC
+97,세인트루시아,Saint Lucia,1758,LC,LCA
+98,세인트헬레나,Saint Helena,290,SH,SHN
+99,소말리아,Somalia,252,SO,SOM
+100,솔로몬 제도,Solomon Islands,677,SB,SLB
+101,수단,Sudan,249,SD,SDN
+102,수리남,Suriname,597,SR,SUR
+103,스리랑카,Sri Lanka,94,LK,LKA
+104,스웨덴,Sweden,46,SE,SWE
+105,스위스,Switzerland,41,CH,CHE
+106,스페인,Spain,34,ES,ESP
+107,슬로바키아,Slovakia,421,SK,SVK
+108,슬로베니아,Slovenia,386,SI,SVN
+109,시리아,Syria,963,SY,SYR
+110,시에라리온,Sierra Leone,232,SL,SLE
+111,신트마르턴,Sint Maarten,1721,SX,SXM
+112,싱가포르,Singapore,65,SG,SGP
+113,아랍에미리트,United Arab Emirates,971,AE,ARE
+114,아루바,Aruba,297,AW,ABW
+115,아르메니아,Armenia,374,AM,ARM
+116,아르헨티나,Argentina,54,AR,ARG
+117,아메리칸사모아,American Samoa,1684,AS,ASM
+118,아이슬란드,Iceland,354,IS,ISL
+119,아이티,Haiti,509,HT,HTI
+120,아일랜드,Ireland,353,IE,IRL
+121,아제르바이잔,Azerbaijan,994,AZ,AZE
+122,아프가니스탄,Afghanistan,93,AF,AFG
+123,안도라,Andorra,376,AD,AND
+124,알바니아,Albania,355,AL,ALB
+125,알제리,Algeria,213,DZ,DZA
+126,앙골라,Angola,244,AO,AGO
+127,앤티가 바부다,Antigua and Barbuda,1268,AG,ATG
+128,앵귈라,Anguilla,1264,AI,AIA
+129,에리트레아,Eritrea,291,ER,ERI
+130,에스와티니,Eswatini,268,SZ,SWZ
+131,에스토니아,Estonia,372,EE,EST
+132,에콰도르,Ecuador,593,EC,ECU
+133,에티오피아,Ethiopia,251,ET,ETH
+134,엘살바도르,El Salvador,503,SV,SLV
+135,영국,United Kingdom,44,GB,GBR
+136,예멘,Yemen,967,YE,YEM
+137,오만,Oman,968,OM,OMN
+138,오스트레일리아,Australia,61,AU,AUS
+139,오스트리아,Austria,43,AT,AUT
+140,온두라스,Honduras,504,HN,HND
+141,요르단,Jordan,962,JO,JOR
+142,우간다,Uganda,256,UG,UGA
+143,우루과이,Uruguay,598,UY,URY
+144,우즈베키스탄,Uzbekistan,998,UZ,UZB
+145,우크라이나,Ukraine,380,UA,UKR
+146,이라크,Iraq,964,IQ,IRQ
+147,이란,Iran,98,IR,IRN
+148,이스라엘,Israel,972,IL,ISR
+149,이집트,Egypt,20,EG,EGY
+150,이탈리아,Italy,39,IT,ITA
+151,인도,India,91,IN,IND
+152,인도네시아,Indonesia,62,ID,IDN
+153,일본,Japan,81,JP,JPN
+154,자메이카,Jamaica,1876,JM,JAM
+155,잠비아,Zambia,260,ZM,ZMB
+156,적도 기니,Equatorial Guinea,240,GQ,GNQ
+157,북한,DPR of Korea,850,KP,PRK
+158,조지아,Georgia,995,GE,GEO
+159,중앙아프리카 공화국,Central Africa,236,CF,CAF
+160,대만,Taiwan,886,TW,TWN
+161,중화인민공화국,China,86,CN,CHN
+162,지부티,Djibouti,253,DJ,DJI
+163,지브롤터,Gibraltar,350,GI,GIB
+164,짐바브웨,Zimbabwe,263,ZW,ZWE
+165,차드,Chad,235,TD,TCD
+166,체코,Czech,420,CZ,CZE
+167,칠레,Chile,56,CL,CHL
+168,카메룬,Cameroon,237,CM,CMR
+169,카보베르데,Cape Verde,238,CV,CPV
+170,카자흐스탄,Kazakstan,7,KZ,KAZ
+171,카타르,Qatar,974,QA,QAT
+172,캄보디아,Cambodia,855,KH,KHM
+173,캐나다,Canada,1,CA,CAN
+174,케냐,Kenya,254,KE,KEN
+175,케이맨 제도,Cayman Islands,1345,KY,CYM
+176,코모로,the Comoros,269,KM,COM
+177,코스타리카,Costa Rica,506,CR,CRI
+178,코트디부아르,Ivory Coast,225,CI,CIV
+179,콜롬비아,Colombia,57,CO,COL
+180,콩고 공화국,Congo,242,CG,COG
+181,콩고 민주 공화국,DR Congo,243,CD,COD
+182,쿠바,Cuba,53,CU,CUB
+183,쿠웨이트,Kuwait,965,KW,KWT
+184,쿡 제도,Cook Islands,682,CK,COK
+185,크로아티아,Croatia,385,HR,HRV
+186,키르기스스탄,Kyrgizstan,996,KG,KGZ
+187,키리바시,Kiribati,686,KI,KIR
+188,키프로스,Cyprus,357,CY,CYP
+189,타지키스탄,Tajikistan,992,TJ,TJK
+190,탄자니아,Tanzania,255,TZ,TZA
+191,태국,Thailand,66,TH,THA
+192,터키,Turkey,90,TR,TUR
+193,토고,Togo,228,TG,TGO
+194,토켈라우,Tokelau,690,TK,TKL
+195,통가,Tonga,676,TO,TON
+196,투르크메니스탄,Turkmenistan,993,TM,TKM
+197,투발루,Tuvalu,688,TV,TUV
+198,튀니지,Tunisia,216,TN,TUN
+199,트리니다드 토바고,Trinidad and Tobago,1868,TT,TTO
+200,파나마,Panama,507,PA,PAN
+201,파라과이,Paraguay,595,PY,PRY
+202,파키스탄,Pakistan,92,PK,PAK
+203,파푸아뉴기니,Papua New Guinea,675,PG,PNG
+204,팔라우,Palau,680,PW,PLW
+205,팔레스타인,State of Palestine,970,PS,PSE
+206,페루,Peru,51,PE,PER
+207,포르투갈,Portugal,351,PT,PRT
+208,포클랜드 제도,Falkland Islands,500,FK,FLK
+209,폴란드,Poland,48,PL,POL
+210,푸에르토리코,Puerto Rico,1787,PR,PRI
+211,프랑스,France,33,FR,FRA
+212,피지,Fiji,679,FJ,FJI
+213,핀란드,Finland,358,FI,FIN
+214,필리핀,the Philippines,63,PH,PHL
+215,헝가리,Hungary,36,HU,HUN
+216,홍콩,Hong Kong,852,HK,HKG
