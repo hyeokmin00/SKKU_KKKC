@@ -8,8 +8,17 @@ def home(request):
 def notify(request):
     return render(request, 'notify.html')
 
-# def test(request):
-#     return render(request, 'index.html')
+def result(request):
+    return render(request, 'result.html')
+
+def financial(request):
+    return render(request, 'financial.html')
+
+def investigative(request):
+    return render(request, 'investigative.html')
+
+def test(request):
+    return render(request, 'home_try.html')
 
 def number_search(request):
     return render(request, 'number_search.html')
