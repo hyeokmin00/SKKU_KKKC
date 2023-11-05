@@ -8,13 +8,72 @@
                 <div class="separator separator-info">✻</div>
             </div>
 
-            <div class="section section-card-blog">
+            <!-- 페이징처리 시작 -->
+            <!-- <ul class="pagination justify-content-center"> -->
+                <!-- 이전페이지 -->
+                <!-- {% if question_list.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ question_list.previous_page_number }}">이전</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+                </li>
+                {% endif %} -->
+                <!-- 페이지리스트 -->
+                <!-- {% for page_number in question_list.paginator.page_range %}
+                    {% if page_number >= question_list.number|add:-3 and page_number <= question_list.number|add:3 %}
+                        {% if page_number == question_list.number %}
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                        </li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %} -->
+                <!-- 다음페이지 -->
+                <!-- {% if question_list.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ question_list.next_page_number }}">다음</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+                </li>
+                {% endif %}
+            </ul> -->
+            <!-- 페이징처리 끝 -->
+
+
+            <div class="section section-cards">
                 <div class="container-fluid">
-                    <div class="text-area">
+                    <div class="row">
+                        <div>
+                            {% for org in orgs_list %}
+                                {% if org.work is not none %}
+                                    <div class="col-sm-6">
+                                        <a href="{{ org.url }}">
+                                            <div class="card card-price">
+                                                <br>
+                                                <h3 class="title-header text-info">{{ org.name }}</h3>
+                                                <p class="text-description text-gray">{{ org.number }}</p>
+                                                <br>
+                                            </div>
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- <div class="text-area">
                         {% comment %} db 연결해서 유관기관 연락처 가져오기. 기관 유형별로 구분 {% endcomment %}
-                        <div class="row">
+                        <div class="row"> -->
                                 <!-- 각 기관 정보 리스트로 입력하기. db 연결해서 정보 가져오기 -->
-                            <ul class="list-group list-group-flush">
+                            <!-- <ul class="list-group list-group-flush">
                                 <a href="#" class="list-group-item">
                                     <span style="font-size: 2em;">기관명</span>
                                     <span style="font-size: 2em; padding: 1em;"></span>
@@ -22,8 +81,7 @@
                                 </a>
                             </ul>
                         </div>
-                        
-                    </div>
+                    </div> -->
                 </div>
             </div>
 

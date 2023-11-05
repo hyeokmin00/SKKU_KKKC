@@ -4,14 +4,30 @@
     <div class="container">
         <div class="text-area">
             <div class="title">
-                <h1 id='font_mod'>수사기관 연락처</h1>
+                <h1 id='font_mod'>수사 및 신고기관 연락처</h1>
                 <div class="separator separator-info">✻</div>
             </div>
 
-            <div class="section section-card-blog">
-                <div class="container">
-                    <div class="text-area">
-                        {% comment %} db 연결해서 유관기관 연락처 가져오기. 기관 유형별로 구분 {% endcomment %}
+            <div class="section section-cards">
+                <div class="container-fluid">
+                    <!-- 수사기관 리스트 -->
+                    <div class="row">
+                        <div>
+                            {% for org in orgs_list %}
+                                {% if "국번" in org.number %}
+                                    <div class="col-sm-6">
+                                        <a href="{{ org.url }}">
+                                            <div class="card card-price">
+                                                <br>
+                                                <h3 class="title-header text-info">{{ org.name }}</h3>
+                                                <p class="text-description text-gray">{{ org.number }}</p>
+                                                <br>
+                                            </div>
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>
