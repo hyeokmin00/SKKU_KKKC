@@ -14,13 +14,13 @@
                     <div class="row">
                         <div>
                             {% for org in orgs_list %}
-                                {% if "국번" in org.number %}
+                                {% if "국번" in org.call %}
                                     <div class="col-sm-6">
                                         <a href="{{ org.url }}">
                                             <div class="card card-price">
                                                 <br>
                                                 <h3 class="title-header text-info">{{ org.name }}</h3>
-                                                <p class="text-description text-gray">{{ org.number }}</p>
+                                                <p class="text-description text-gray">{{ org.call }}</p>
                                                 <br>
                                             </div>
                                         </a>

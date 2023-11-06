@@ -83,6 +83,27 @@ DATABASES = {
 }
 
 
+DATABASES = {
+    #gcp_db
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": 'bopibopi',
+        "USER": 'admin',
+        "PASSWORD": 'admin1234',
+        "HOST": '35.194.218.162',
+        'PORT': '3306',
+    }
+    # 로컬 db
+    # "default": {
+    #     "ENGINE": "django.db.backends.mysql",
+    #     "NAME": 'bopibopi',
+    #     "USER": 'root',
+    #     "PASSWORD": '0357',
+    #     "HOST": '127.0.0.1',
+    #     'PORT': '3306',
+    # },
+}
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -122,7 +143,6 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
    BASE_DIR / 'static',
 ]
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
