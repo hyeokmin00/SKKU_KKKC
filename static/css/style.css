@@ -1,0 +1,28 @@
+.fixed-nav-section {
+    /* size of fixed-nav */
+    position: relative;
+    top: 70px;
+}
+
+.section-presentation-page .home-container { 
+    height:initial ;
+}
+
+
+ .section-presentation-page .content{
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    
+ }
+
+ .section-presentation-page .content {
+    color:black;
+    text-shadow: 0px 0px 0px;
+ }
+
+
+ .section-presentation-page .separator {
+    color: #e78b90;
+    margin: 30px auto;
+  }

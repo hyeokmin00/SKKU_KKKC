@@ -1,0 +1,103 @@
+{% extends "./base.html" %}
+{% block main %}
+<!-- 전체 폰트 조정하기 -->
+<div class="section section-contact">
+    <div class="container">
+        <div class="text-area">
+            <div class="title">
+                <h2 id='font_mod'>의심 번호 조회</h2>
+                <div class="separator separator-danger">✻</div>
+                <h5 class="text-gray">의심되는 전화번호, 계좌번호를 입력해주세요.</h5>
+            </div>
+
+
+            <div class="contact-form">
+                <form action="" method="post">
+                    <div class="row">
+                        <div class="col-md-4 col-md-push-4">
+                            <div class="form-group">
+                                <input type="text" name="phone1" value="" placeholder="010-1234-5678, 000-000-00000" class="form-control" id="phoneInput1">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <button type="button" class="btn btn-fill btn-danger" id="checkButton">
+                            입력
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <script>
+                const phoneInput1 = document.getElementById("phoneInput1");
+                
+                
+            
+                checkButton.addEventListener("click", function() {
+                    const phone1Value = phoneInput1.value.replace(/[^0-9]/g, "");
+                    
+            
+                    if (phone1Value.length < 10 || phone1Value.length >= 15) {
+                        alert("잘못 입력하셨습니다. 번호를 다시 확인해 주세요");
+                    }
+                });
+            </script>
+        
+            </form>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="section section-numbers" >
+    <div class="container">
+        <div class="title-area">
+            <h2>조회 결과</h2>
+            <div class="separator separator-danger">✻</div>
+            <!-- 입력한 번호 출력 추가하기 -->
+            <h5 class="text-gray">입력하신 " "번에 대한 조회 결과입니다.</h5>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card card-plain">
+                    <div class="icon">
+                        <i class="pe-7s-check"></i>
+                    </div>
+                    <h3>조회 횟수</h3>
+                    
+                    <div class="number text-danger">
+                        42
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card card-plain">
+                    <div class="icon">
+                        <i class="pe-7s-call"></i>
+                    </div>
+                    <h3>의심번호 신고하기</h3>
+                    <button class="btn btn-fill btn-lg btn-danger">신고하기</button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card card-plain">
+                    <div class="icon">
+                        <i class="pe-7s-attention"></i>
+                    </div>
+                    <h3>해당 번호는</h3>
+                    <div class="number text-danger text-sm">
+                        의심되는 번호
+                    </div>
+                    <h3>입니다.</h3>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
