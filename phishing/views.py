@@ -40,6 +40,9 @@ def investigative(request): #수사 및 신고기관
 def victim_guide(request):
     return render(request, 'victim_guide.html')
 
+def guide_test(request):
+    return render(request, 'guide_test.html',)
+
 def test(request):
     return render(request, 'home_try.html')
 

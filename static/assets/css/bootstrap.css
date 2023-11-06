@@ -264,6 +264,7 @@ th {
     border: 1px solid #ddd !important;
   }
 }
+/* 기존 폰트 */
 @font-face {
   font-family: 'Glyphicons Halflings';
 
@@ -282,8 +283,17 @@ th {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* 신규 적용 폰트 */
+/* @font-face {
+  font-family: 'Glyphicons Halflings';
+  
+  src: url('../fonts/NanumSquareNeo/NanumSquareNeo-cBd.ttf');
+  src: url('../fonts/NanumSquareNeo/NanumSquareNeo-cBd.ttf#iefix') format('truetype'), url('../fonts/NanumSquareNeo/NanumSquareNeoOTF-Bd.otf') format('otf');
+} */
+
 .glyphicon-asterisk:before {
-  content: "\2a";
+  content: "/2a";
 }
 .glyphicon-plus:before {
   content: "\2b";

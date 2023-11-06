@@ -10,11 +10,6 @@
 
             <div class="section section-cards">
                 <div class="container-fluid">
-                    <!-- <div class="">
-
-                    </div> -->
-                        <!-- <div class="header-faq text-center"> -->
-
                         <!-- 금융기관 리스트 -->
                         <h2>금융기관</h2>
                         <div class="line-divider line-info"></div>
@@ -26,7 +21,7 @@
                                 {% for org in orgs_list %}
                                     {% if "국번" not in org.call %}
                                         <div class="col-sm-6">
-                                            <a href="{{ org.url }}">
+                                            <a href="{{ org.url }}" target="_blank">
                                                 <div class="card card-price">
                                                     <br>
                                                     <h3 class="title-header text-info">{{ org.name }}</h3>
@@ -39,7 +34,6 @@
                                 {% endfor %}
                             </div>
                         </div>
-
                         <br>
                         <hr>
                         <!-- 수사기관 리스트 -->
@@ -64,10 +58,8 @@
                                 {% endfor %}
                             </div>
                         </div>
-
                 </div>
             </div>
-
         </div>
     </div>
 </div>
