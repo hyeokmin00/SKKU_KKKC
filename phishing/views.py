@@ -40,23 +40,17 @@ def investigative(request): #수사 및 신고기관
 def victim_guide(request):
     return render(request, 'victim_guide.html')
 
+# ---------------------------------------------------------
+# 실시간 탐지 페이지 테스트
+def real_time_detectoin(request):
+    return render(request, 'real_time_detection.html')
+
+def number_search(request):
+    return render(request, 'number_search.html')
+
 def guide_test(request):
     return render(request, 'guide_test.html',)
 
 def test(request):
     return render(request, 'home_try.html')
 
-def number_search(request):
-    return render(request, 'number_search.html')
-
-def SMS_mail(request):
-    return render(request, 'SMS_mail.html')
-
-def text(request):
-    return render(request, 'text.html')
-
-def capture(request):
-    return render(request, 'capture.html')
-
-def call(request):
-    return render(request, 'call.html')
