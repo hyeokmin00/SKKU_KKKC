@@ -54,8 +54,14 @@ def real_time_detectoin(request):
     return render(request, "real_time_detection.html")
 
 
+# 번호 조회 페이지
 def number_search(request):
     return render(request, "number_search.html")
+
+
+# 실시간 탐지 시 정보 제공 동의 여부 확인
+def agreement(request):
+    return render(request, 'agreement.html')
 
 
 def guide_test(request):

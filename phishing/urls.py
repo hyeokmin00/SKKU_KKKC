@@ -15,6 +15,7 @@ urlpatterns = [
     # 테스트 페이지
     path('real_time_detection/', views.real_time_detectoin, name='real_time_detection'), #실시간 탐지 페이지
     path('number_search/', views.number_search, name='number_search'), #의심번호 입력
-    
+    path('agreement/', views.agreement),
+
     path('guide_test/', views.guide_test, name='guide_test' ),    
 ]
