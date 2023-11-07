@@ -4,14 +4,14 @@
     <div class="container">
         <div class="text-area">
             <div class="title">
-                <h2 id='font_mod'>피싱 피해 신고처</h2>
+                <h2 id="NSK">피싱 피해 신고처</h2>
                 <div class="separator separator-info">✻</div>
             </div>
 
             <div class="section section-cards">
                 <div class="container-fluid">
                         <!-- 금융기관 리스트 -->
-                        <h2>금융기관</h2>
+                        <h2 id="NSK">금융기관</h2>
                         <div class="line-divider line-info"></div>
                             <!-- <div class="separator separator-info">✻</div> -->
                         <!-- </div> -->
@@ -24,8 +24,8 @@
                                             <a href="{{ org.url }}" target="_blank">
                                                 <div class="card card-price">
                                                     <br>
-                                                    <h3 class="title-header text-info">{{ org.name }}</h3>
-                                                    <p class="text-description text-gray">{{ org.call }}</p>
+                                                    <h3 id="NSK" class="title-header text-info">{{ org.name }}</h3>
+                                                    <p id="NSK" class="text-description text-gray">{{ org.call }}</p>
                                                     <br>
                                                 </div>
                                             </a>
@@ -37,7 +37,7 @@
                         <br>
                         <hr>
                         <!-- 수사기관 리스트 -->
-                        <h2>수사 및 신고 기관</h2>
+                        <h2 id="NSK">수사 및 신고 기관</h2>
                         <div class="line-divider line-info"></div>
                         <br>
                         <div class="row">
@@ -48,8 +48,8 @@
                                             <a href="{{ org.url }}">
                                                 <div class="card card-price">
                                                     <br>
-                                                    <h3 class="title-header text-info">{{ org.name }}</h3>
-                                                    <p class="text-description text-gray">{{ org.call }}</p>
+                                                    <h3 id="NSK" class="title-header text-info">{{ org.name }}</h3>
+                                                    <p id="NSK" class="text-description text-gray">{{ org.call }}</p>
                                                     <br>
                                                 </div>
                                             </a>

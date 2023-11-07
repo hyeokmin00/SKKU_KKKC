@@ -35,13 +35,31 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="{% static 'assets/css/fonts/pe-icon-7-stroke.css'  %}" rel="stylesheet">
 
-    <!-- accordian, carousel -->
-    <!-- 기존 템플릿과 충돌 발생 -->
-    {% comment %} <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"> {% endcomment %}
-
-    <!-- 이미지 -->
+    <!-- accordian -->
+    <link href="{% static 'assets/css/css/style.css'  %}" rel="stylesheet">
+    
+    {% comment %} 구글 폰트 {% endcomment %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
+        #NSK {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .guide_link {
+            color : white;
+        }
+
+        #accordion-btn {
+            width : 29rem;
+        }
+
+        {% comment %} .text-mid {
+            width : 29rem;
+        } {% endcomment %}
+   
         .list-group {
             padding: 2em;
         }
@@ -283,9 +301,9 @@
 <script type="text/javascript" src="{% static 'assets/js/gaia.js' %}"></script>
 
 <!-- accordian, carousel -->
-<!-- 기존 템플릿과 충돌 발생 -->
 <script type="text/javascript" src="{% static 'assets/js/bootstrap.min.js' %}"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-
+{% comment %} bootstrap.js에 전부 적용되어 있는 내용. 여러번 불러오면 깨지므로 주의 {% endcomment %}
+{% comment %} <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script> {% endcomment %}
+{% comment %} <script src="{% static 'assets/js/accordian.js' %}"></script> {% endcomment %}
 
 </html>
