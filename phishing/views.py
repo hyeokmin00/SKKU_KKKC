@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+<<<<<<< HEAD
 
 from .models import Organizations
 from django.core.paginator import Paginator
@@ -54,3 +55,6 @@ def guide_test(request):
 def test(request):
     return render(request, 'home_try.html')
 
+=======
+# Create your views here.
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7

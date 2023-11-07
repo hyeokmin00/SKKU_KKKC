@@ -15,7 +15,10 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -27,7 +30,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,8 +43,18 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+<<<<<<< HEAD
 
     "phishing",
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> Stashed changes
+    "phishing",
+>>>>>>> Stashed changes
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
 ]
 
 MIDDLEWARE = [
@@ -49,6 +65,10 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+<<<<<<< HEAD
+=======
+    "django.middleware.csrf.CsrfViewMiddleware",  # csrf 토큰 오류 -> 추가
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
 ]
 
 ROOT_URLCONF = "bopibopi.urls"
@@ -71,7 +91,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "bopibopi.wsgi.application"
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -82,6 +105,7 @@ DATABASES = {
     }
 }
 
+<<<<<<< HEAD
 
 DATABASES = {
     #gcp_db
@@ -92,6 +116,19 @@ DATABASES = {
         "PASSWORD": 'admin1234',
         "HOST": '35.194.218.162',
         'PORT': '3306',
+=======
+<<<<<<< Updated upstream
+=======
+DATABASES = {
+    # gcp_db
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "bopibopi",
+        "USER": "admin",
+        "PASSWORD": "admin1234",
+        "HOST": "35.194.218.162",
+        "PORT": "3306",
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
     }
     # 로컬 db
     # "default": {
@@ -104,11 +141,16 @@ DATABASES = {
     # },
 }
 
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
+<<<<<<< HEAD
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
@@ -123,6 +165,25 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+=======
+        "NAME":
+        "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+    },
+    {
+        "NAME":
+        "django.contrib.auth.password_validation.MinimumLengthValidator",
+    },
+    {
+        "NAME":
+        "django.contrib.auth.password_validation.CommonPasswordValidator",
+    },
+    {
+        "NAME":
+        "django.contrib.auth.password_validation.NumericPasswordValidator",
+    },
+]
+
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -134,15 +195,28 @@ USE_I18N = True
 
 USE_TZ = True
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+<<<<<<< HEAD
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
    BASE_DIR / 'static',
 ]
+=======
+<<<<<<< Updated upstream
+=======
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+>>>>>>> Stashed changes
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

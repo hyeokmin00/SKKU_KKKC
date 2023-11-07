@@ -1,24 +1,43 @@
+<<<<<<< HEAD
 .footer{
+=======
+.footer {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
     background-color: $white-color;
     line-height: $line-height;
     /*border-top: 1px solid #DDDDDD;*/
 
+<<<<<<< HEAD
     nav > ul{
+=======
+    nav>ul {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
         list-style: none;
         margin: 0;
         padding: 0;
         font-weight: normal;
 
+<<<<<<< HEAD
         a:not(.btn){
             color: $dark-gray;
             display: block;
             margin-bottom: 3px;
             &:hover,
             &:focus{
+=======
+        a:not(.btn) {
+            color: $dark-gray;
+            display: block;
+            margin-bottom: 3px;
+
+            &:hover,
+            &:focus {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
                 color: $default-states-color;
             }
         }
     }
+<<<<<<< HEAD
     .social-area{
         padding: 15px 0;
         h5{
@@ -40,31 +59,79 @@
        }
     }
     .copyright{
+=======
+
+    .social-area {
+        padding: 15px 0;
+
+        h5 {
+            padding-bottom: 15px;
+        }
+    }
+
+    .social-area>a:not(.btn) {
+        color: $dark-gray;
+        display: inline-block;
+        vertical-align: top;
+        padding: $padding-social-a;
+        font-size: $font-size-large;
+        font-weight: normal;
+        line-height: $line-height;
+        text-align: center;
+
+        &:hover,
+        &:focus {
+            color: $default-states-color;
+        }
+    }
+
+    .copyright {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
         color: $default-states-color;
         padding: 10px 15px;
         margin: 15px 3px;
         line-height: 20px;
         text-align: center;
     }
+<<<<<<< HEAD
     hr{
         border-color: $medium-gray;
     }
     .title{
+=======
+
+    hr {
+        border-color: $medium-gray;
+    }
+
+    .title {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
         color: $default-states-color;
     }
 
     overflow: hidden;
+<<<<<<< HEAD
     .title{
+=======
+
+    .title {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
         text-align: left;
         margin-bottom: 10px;
         font-size: 15px;
         font-weight: bold;
     }
+<<<<<<< HEAD
     .btn-social{
+=======
+
+    .btn-social {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
         color: #9A9A9A;
     }
 }
 
+<<<<<<< HEAD
 .footer:not(.footer-big){
     nav > ul{
        font-size: 16px;
@@ -73,17 +140,34 @@
             float: left;
         }
         a{
+=======
+.footer:not(.footer-big) {
+    nav>ul {
+        font-size: 16px;
+
+        li {
+            margin-left: 20px;
+            float: left;
+        }
+
+        a {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
             padding: 10px 0px;
             margin: 15px 10px 15px 0px;
         }
     }
 }
 
+<<<<<<< HEAD
 .footer-color-gray{
+=======
+.footer-color-gray {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
     background-color: $smoke-bg;
 }
 
 .footer-color-black,
+<<<<<<< HEAD
 .footer-transparent{
     background-color: $black-bg;
     color: $medium-gray;
@@ -93,10 +177,23 @@
             color: $white-color;
             &:hover,
             &:focus{
+=======
+.footer-transparent {
+    background-color: $black-bg;
+    color: $medium-gray;
+
+    nav>ul {
+        a {
+            color: $white-color;
+
+            &:hover,
+            &:focus {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
                 color: $dark-gray;
             }
         }
     }
+<<<<<<< HEAD
     .social-area > a:not(.btn){
         color: $white-color;
         &:hover,
@@ -111,33 +208,74 @@
         border-color: $black-hr;
     }
     .title{
+=======
+
+    .social-area>a:not(.btn) {
+        color: $white-color;
+
+        &:hover,
+        &:focus {
+            color: $dark-gray;
+        }
+    }
+
+    .btn-social {
+        color: $white-color;
+    }
+
+    hr {
+        border-color: $black-hr;
+    }
+
+    .title {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
         color: $medium-gray;
     }
 }
 
+<<<<<<< HEAD
 .footer-transparent{
+=======
+.footer-transparent {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
     background-attachment: fixed;
     background-size: cover;
     position: relative;
 
+<<<<<<< HEAD
     .container{
+=======
+    .container {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
         z-index: 2;
         position: relative;
     }
 
+<<<<<<< HEAD
     &::after{
+=======
+    &::after {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
         @include black-filter(.8);
     }
 }
 
+<<<<<<< HEAD
 .footer-big{
     padding-top: 30px;
 
     hr{
+=======
+.footer-big {
+    padding-top: 30px;
+
+    hr {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
         margin-bottom: 10px;
         margin-top: 10px;
     }
 
+<<<<<<< HEAD
     .container > hr{
         margin-top: 50px;
     }
@@ -149,11 +287,27 @@
     }
 
     nav > ul{
+=======
+    .container>hr {
+        margin-top: 50px;
+    }
+
+    .copyright {
+        margin: 10px 0px 20px;
+    }
+
+    .social-area>* {
+        margin: 0 15px;
+    }
+
+    nav>ul {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
         width: 100%;
         list-style: none;
         margin: 0;
         padding: 0;
         font-weight: normal;
+<<<<<<< HEAD
         li{
             float: none;
         }
@@ -168,24 +322,65 @@
         margin-top: 15px;
     }
     .numbers h4{
+=======
+
+        li {
+            float: none;
+        }
+
+        .btn {
+            margin-bottom: 5px;
+        }
+
+        .btn-social.btn-simple {
+            padding: 0 0 4px 0;
+        }
+    }
+
+    .form-group {
+        margin-top: 15px;
+    }
+
+    .numbers h4 {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
         margin: $margin-bottom;
     }
 }
 
+<<<<<<< HEAD
 .social-line{
     padding: $padding-large-vertical 0;
     background-color: $white-color;
     .title{
+=======
+.social-line {
+    padding: $padding-large-vertical 0;
+    background-color: $white-color;
+
+    .title {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
         margin: $none;
         line-height: $height-base;
         font-size: $font-size-h4;
     }
+<<<<<<< HEAD
     .btn{
+=======
+
+    .btn {
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
         width: 100%;
     }
 }
 
+<<<<<<< HEAD
 .social-line-black{
     background-color: $black-bg;
     color: #FFFFFF;
 }
+=======
+.social-line-black {
+    background-color: $black-bg;
+    color: #FFFFFF;
+}
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7

@@ -1,0 +1,75 @@
+{% extends "./base.html" %}
+{% block main %}
+  <div class="section section-presentation-page fixed-nav-section">
+    <div class="image" style="background-image:url('assets/img/header-4.jpeg')"></div>
+
+    <div class="container">
+      <div class="content">
+        <p>
+          <span>BopiBopi</span></p>
+
+        <h1 class="title-modern">피싱 탐지 시스템</h1>
+        <hr>
+        <div class="separator">♦</div>
+
+        <input id="실시간 탐지 중지" type="button" value="실시간 탐지 시작" style="font-size: 60px; color: black; background-color: ivory;" onclick="
+              let target = document.querySelector('body');
+              if (this.value === '실시간 탐지 시작') {
+                  target.style.backgroundColor = 'white';
+                  target.style.color = 'black';
+                  this.value = '실시간 탐지 중지';
+
+              } else {
+                  target.style.backgroundColor = 'black';
+                  target.style.color = 'white';
+                  this.value = '실시간 탐지 시작';
+              }
+          ">
+        <script>
+          window.addEventListener('load', function () {
+            let target = document.querySelector('body');
+            let button = document.querySelector('#night_day');
+            target.style.backgroundColor = 'black';
+            target.style.color = 'white';
+            button.value = 'night';
+          });
+        </script>
+        <h2 id='font_mod'>의심 번호 조회</h2>
+        <div class="separator separator-danger">✻</div>
+        <h5 class="text-gray">의심되는 전화번호, 계좌번호를 입력해주세요.</h5>
+
+        <div class="contact-form">
+          <form action="" method="post">
+            <div class="row">
+              <div class="col-md-4 col-md-push-4">
+                <div class="form-group">
+                  <input type="text" name="phone1" value="" placeholder="010-1234-5678, 000-000-00000" class="form-control" id="phoneInput1">
+
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <button type="button" class="btn btn-fill btn-danger" id="checkButton">
+                입력
+              </button>
+            </div>
+          </form>
+        </div>
+        <script>
+          const phoneInput1 = document.getElementById("phoneInput1");
+
+          checkButton.addEventListener("click", function () {
+            const phone1Value = phoneInput1
+              .value
+              .replace(/[^0-9]/g, "");
+
+            if (phone1Value.length < 10 || phone1Value.length >= 15) {
+              alert("잘못 입력하셨습니다. 번호를 다시 확인해 주세요");
+            }
+          });
+        </script>
+      </div>
+    </div>
+
+  {% endblock %}

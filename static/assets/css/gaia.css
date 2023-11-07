@@ -103,7 +103,11 @@ h1, .h1 {
 }
 
 h2, .h2 {
+<<<<<<< HEAD
   font-size: 2.5em;
+=======
+  font-size: 2.4em;
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
   line-height: 1.25;
   margin: 0.4em 0;
   font-weight: bold;
@@ -2458,9 +2462,15 @@ a.carousel-control span.fa {
 .section-header-blog .content,
 .section-presentation-page .content {
   position: relative;
+<<<<<<< HEAD
   color: white;
   text-align: center;
   text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+=======
+  color: black;
+  text-align: center;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+>>>>>>> 8efde3335d17e3ab938568b8585c20713a591cb7
   vertical-align: center;
   line-height: 1.7;
   position: relative;
