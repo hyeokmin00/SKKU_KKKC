@@ -1,88 +1,84 @@
 {% extends "./base.html" %}
 {% block main %}
 
-  <div class="section section-presentation-page fixed-nav-section">
-    <div class="image" style="background-image:url('assets/img/header-4.jpeg')"></div>
+  {% comment %} <div class="section section-presentation-page"> {% endcomment %}
+    <div class="section section-presentation-page fixed-nav-section">
+    <div class="parallax filter filter-color-blue">
+      {% comment %} <div class="image" style="background-image:url('assets/img/header-4.jpeg')"></div> {% endcomment %}
+      <div class="container" style="height:100%" >
+        <div class="content">
+          <p>
+            
+        
+			<h1 class="title-modern" style="margin-top: 100px;"> 피싱 탐지 시스템 
 
-    <div class="container home-container">
-      <div class="content">
-        <div>
+			</h1>
 
-            {% comment %} 진행바 코드{% endcomment %}
-            <style>
-                #progress-container {
-                    width: 100%;
-                    background-color: green;
-                }
-             
-                #progress-bar {
-                    width: 10;
-                    height: 30px;
-                    line-height: 30px;
-                    background-color: #e78b90;
-                    text-align: center;
-                }
-            </style>
-             
-            <div id="progress-container">
-                <div id="progress-bar"></div>
+           
+              <br>
+              <button onclick="start()">실시간 탐지 시작</button>
+               <p>
+              <script>
+                  var i = 0;
+               
+                  function start() {
+                      if (i == 0) {
+                          i = 1;
+                          var elem = document.getElementById("progress-bar");
+                          var width = 0;
+                          var id = setInterval(frame, 10);
+               
+                          function frame() {
+                              if (width >= 100) {
+                                  clearInterval(id);
+                                  i = 0;
+                              } else {
+                                  width++;
+                                  elem.style.width = width + "%";
+                                  elem.innerHTML = width + "%";
+                              }
+                          }
+                      }
+                  }
+              </script>
+			  <div>
+
+				{% comment %} 진행바 코드{% endcomment %}
+				<style>
+					#progress-container {
+					  
+						width: 100%;
+						{% comment %} align-items: center; {% endcomment %}
+						background-color: green;
+						
+					}
+				 
+					#progress-bar {
+						width: 10;
+						
+						height: 30px;
+						line-height: 30px;
+						background-color: white;
+						text-align: center;
+					}
+				</style>
+				 
+				<div id="progress-container">
+					<div id="progress-bar"></div>
+				</div>
             </div>
-            <br>
-            <button onclick="start()">실시간 탐지 시작</button>
-             
-            <script>
-                var i = 0;
-             
-                function start() {
-                    if (i == 0) {
-                        i = 1;
-                        var elem = document.getElementById("progress-bar");
-                        var width = 0;
-                        var id = setInterval(frame, 10);
-             
-                        function frame() {
-                            if (width >= 100) {
-                                clearInterval(id);
-                                i = 0;
-                            } else {
-                                width++;
-                                elem.style.width = width + "%";
-                                elem.innerHTML = width + "%";
-                            }
-                        }
-                    }
-                }
-            </script>
 
-          {% comment %} <input id="실시간 탐지 중지" type="button" value="실시간 탐지 시작" style="font-size: px; color: black; background-color: white;"> {% endcomment %}
-                    {% comment %} let target = document.querySelector('body');
-                    if (this.value === '실시간 탐지 시작') {
-                        target.style.backgroundColor = 'white';
-                        target.style.color = 'black';
-                        this.value = '실시간 탐지 중지';
 
-                    } else {
-                        target.style.backgroundColor = '#cccccc';
-                        target.style.color = 'white';
-                        this.value = '실시간 탐지 시작';
-                    }
-                "/>
-          <script>
-            window.addEventListener('load', function () {
-              let target = document.querySelector('body');
-              let button = document.querySelector('#night_day');
-              target.style.backgroundColor = '#cccccc';
-              target.style.color = 'white';
-              button.value = 'night';
-            });
-          </script> {% endcomment %} 
-        </div>
+            
+			<h2 id="font_mod" style=".element
+    				style {
+  							margin-top: 100px};
+    						margin-top: 70px;">
+							의심 번호 조회
+		    </h2>
+			
 
         
-        {% comment %} 진행바 코드 끝 {% endcomment %}
-
-        <h2 id='font_mod'>의심 번호 조회</h2>
-        {% comment %} <div class="separator separator-danger">✻</div> {% endcomment %}
         <h5 class="text-gray">의심되는 전화번호, 계좌번호를 입력해주세요.</h5>
 
         <div class="contact-form">
@@ -93,17 +89,29 @@
                   <input type="text" name="phone1" value="" placeholder="01012345678, 00000000000" class="form-control" id="phoneInput1">
 
                 </div>
+                
               </div>
+              <p>  
             </div>
 
             <div class="col-md-12 text-center">
-                <button type="button" class="btn btn-fill btn-danger" id="checkButton">
+              
+              
+
+				<button type="button" class="btn btn-fill btn-danger" id="checkButton" style="background-color: #888888;">
                   입력
                 </button>
-                <hr>
+
+
+                <p> 
+                
               </div>
-              </form>
+
+              
+            </form>
+            
               </div>
+
               <script>
                 const phoneInput1 = document.getElementById("phoneInput1");
               
@@ -118,12 +126,13 @@
                   }
                 });
               </script>
-              
+
+
               <h2>조회 결과</h2>
-              <div class="separator separator-danger">✻</div>
+      
               <!-- 입력한 번호 출력 추가하기 -->
               {% comment %} <h5 class="text-gray">입력하신 ""에 대한 조회 결과입니다.</h5> {% endcomment %}
-                      <div class="row">
+                      <div class="row" style="min-height:300px;">
           <div class="col-sm-4">
             <div class="card card-plain">
               <div class="icon">
@@ -142,7 +151,7 @@
             </div>
            
           </div>
-          <div class="col-sm-4">
+          {% comment %} <div class="col-sm-4">
             <div class="card card-plain">
                 <div class="icon">
                     <i class="pe-7s-call"></i>
@@ -150,7 +159,8 @@
                 <h3>의심번호 신고하기</h3>
                 <button class="btn btn-fill btn-lg btn-danger">신고하기</button>
             </div>
-        </div>
+          </div> {% endcomment %}
+
         <div class="col-sm-4">
             <div class="card card-plain">
                 <div class="icon">
@@ -160,11 +170,45 @@
                 <div class="number text-danger text-sm">
                     의심되는 번호
                 </div>
-                <h3>입니다.</h3>
+            </div>
+
+            <div class="container-fluid">
+                <div class="row">
+                        <div class="col-md-6">
+                            <div class="card card-blog">
+                                <a href="/number_search/">
+                                    <div class="content">
+                                        <div class="icon text-info">
+                                            <i class="pe-7s-phone"></i>
+                                        </div>
+                                        <a href="blog-posts.html" class="card-title"><h3>번호 조회</h3>
+                                        <hr>
+                                        <p class="text-description text-gray">의심 전화번호 / 계좌번호 조회하기</p>
+                                        </a>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card card-blog">
+                                <a href="/rel_org/">
+                                    <div class="content">
+                                        <div class="icon text-info">
+                                            <i class="pe-7s-info"></i>
+                                        </div>
+                                        <a href="/rel_org/" class="card-title"><h3>유관기관</h3>
+                                        <hr>
+                                        <p class="text-description text-gray">관련 기관 정보</p>
+                                        </a>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                </div>
+
             </div>
         </div>
-        </div>
-      </div>
 
     </div>
 
