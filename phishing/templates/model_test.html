@@ -1,0 +1,32 @@
+<!-- model_test.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KcBERT Similarity</title>
+</head>
+<body> 
+    <form method="post" action="{% url 'phishing:model_test' %}">
+        {% csrf_token %}
+        <label for="input_sentence">Input Sentence:</label>
+        <input type="text" name="input_sentence" id="input_sentence" required>
+        <button type="submit">Calculate Similarity</button>
+    </form>
+
+    {% if input_sentence %}
+        <h2>Input Sentence: {{ input_sentence }}</h2>
+        {% if similarities %}
+            <h3>Similar Sentences:</h3>
+            <ul>
+                {% for similarity in similarities %}
+                    <li>{{ similarity.text }} - Similarity: {{ similarity.similarity }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Debug: No similar sentences found.</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
