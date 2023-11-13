@@ -56,6 +56,12 @@
             width : 29rem;
         }
 
+        {% comment %} 의심번호 차단 클릭 시 스타일 변경 {% endcomment %}
+        .suspicious-blocked {
+            color: #31b0d5; /* 텍스트 색상을 빨간색으로 변경 */
+            /* 추가적인 스타일링을 여기에 추가 */
+        }
+
         {% comment %} .text-mid {
             width : 29rem;
         } {% endcomment %}
@@ -305,5 +311,25 @@
 {% comment %} bootstrap.js에 전부 적용되어 있는 내용. 여러번 불러오면 깨지므로 주의 {% endcomment %}
 {% comment %} <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script> {% endcomment %}
 {% comment %} <script src="{% static 'assets/js/accordian.js' %}"></script> {% endcomment %}
+
+<!-- 클릭 이벤트 처리를 위한 스크립트 -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function(){ //문서가 로드되면 실행
+        $("#number_block").click(function(e){
+            e.preventDefault(); // 클릭하면 브라우저의 기본 동작 방지 => 기본 링크 동작 방지
+            // 클릭 시 실행
+            var currentText = $("#number_block h3#NSK").text();
+            
+            if (currentText === "의심번호 차단 중") {
+                $("#number_block h3#NSK").text("의심번호 차단하기"); //id가 NSK인 h3 요소의 텍스트 가져와서 currentText에 저장
+                $("#number_block").removeClass("suspicious-blocked"); // "suspicious-blocked" 클래스를 제거하여 스타일 변경
+            } else {
+                $("#number_block h3#NSK").text("의심번호 차단 중");
+                $("#number_block").addClass("suspicious-blocked"); // 클래스를 추가하여 스타일 변경
+            }
+        });
+    });
+</script>
 
 </html>

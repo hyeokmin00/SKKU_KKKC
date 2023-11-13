@@ -28,7 +28,7 @@ def result_num(request):
 
 # 모델 결과 : 위험도 낮음
 def result_low(request):
-    return render(request, 'result_low_model.html')
+    return render(request, 'result_low.html')
 
 # 모델 결과 : 위험도 높음
 def result_high(request):
@@ -65,16 +65,23 @@ def real_time_detectoin(request):
 
 # 번호 조회 페이지
 def number_search(request):
-    search_number = '' #기본값 설정
+    search_number = '' # 기본값 설정
     
     if request.method == "POST":
         search_number = request.POST.get('search_number', '')
 
         # 데이터베이스에서 조회
-        phone_numbers = Phone_numbers.object.filter(phone_number=search_number)
-        account_numbers = Account_numbers.object.filter(account_number=search_number)
-        return render(request, 'result.html', {'phone_numbers':phone_numbers, 'account_numbers':account_numbers, 'search_number':search_number})
+        phone_numbers = Phone_numbers.objects.filter(phone_number=search_number)
+        account_numbers = Account_numbers.objects.filter(account_number=search_number)
+
+        # 결과에 따라 다른 템플릿으로 렌더링
+        if phone_numbers.exists() or account_numbers.exists():
+            return render(request, 'result_num.html', {'phone_numbers': phone_numbers, 'account_numbers': account_numbers, 'search_number': search_number})
+        else:
+            return render(request, 'result_low.html', {'search_number': search_number})
+        
     return render(request, 'number_search.html', {'search_number': search_number})
+
 
 # 실시간 탐지 시 정보 제공 동의 여부 확인
 def agreement(request):
