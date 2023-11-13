@@ -101,7 +101,6 @@ class SimilarityView(View):
         # Calculate embeddings
         input_embedding = calculate_embedding(input_sentence, kcbert_model, kcbert_tokenizer)
         input_embedding_normalized = normalize(input_embedding.reshape(1, -1))  # L2 정규화 적용
-        print("Input Embedding:", input_embedding)
 
         # Calculate similarity
         all_text_mails = Text_mail.objects.all()
@@ -116,11 +115,11 @@ class SimilarityView(View):
                 db_embedding = calculate_embedding(transcript, kcbert_model, kcbert_tokenizer)
                 # db_embedding = np.fromstring(transcript, dtype=float, sep=',')
                 # print(db_embedding)
-                print(idx)
+                # print(idx)
                 if db_embedding.size > 0:
                     db_embedding_normalized = normalize(db_embedding.reshape(1, -1))  # L2 정규화 적용
                     similarity_score = cosine_similarity(input_embedding_normalized, db_embedding_normalized)[0][0]
-                    print(f"Similarity with '{transcript}': {similarity_score}")
+                    # print(f"Similarity with '{transcript}': {similarity_score}")
                     if similarity_score > similarity_threshold:
                         similarity_scores.append({'text': transcript, 'similarity': similarity_score})
 
