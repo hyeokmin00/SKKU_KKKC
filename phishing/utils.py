@@ -11,6 +11,7 @@ def calculate_embedding(sentence, model, tokenizer):
     with torch.no_grad():
         output = model(**tokens)
     embedding = output.last_hidden_state.mean(dim=1).squeeze().numpy()
+    embedding = embedding.astype(float)
     return embedding
 
 
