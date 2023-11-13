@@ -11,15 +11,16 @@
             </div>
 
         <div class="contact-form">
-            <form action="" method="post">
+            <form action="{% url 'phishing:result_num' %}" method="post">
+                {% csrf_token %}
                 <div class="row">
                     <div class="col-md-4 col-md-push-4">
                         <div class="form-group">
-                            <input type="text" name="email" value="" placeholder="010-1234-5678, 000-000-00000" class="form-control">
+                            <input type="text" id="search_number" name="search_number" value="{{ search_number }}" placeholder="010-1234-5678, 000-000-00000" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-md-12 text-center">
-                        <button type="button" class="btn btn-fill btn-info">
+                        <button type="submit" class="btn btn-fill btn-info">
                             <h3 id="NSK">입력</h3>
                         </button>
                     </div>
