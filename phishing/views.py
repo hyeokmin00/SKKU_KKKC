@@ -22,13 +22,13 @@ def home(request):
 def notify(request):
     return render(request, 'notify.html')
 
-# 번호 조회 결과
+# 번호 조회 결과 : 위험도 높음
 def result_num(request):
     return render(request, 'result_num.html')
 
-# 모델 결과 : 위험도 낮음
-def result_low(request):
-    return render(request, 'result_low.html')
+# 번호 조회 결과 : 위험도 낮음
+def result_num_low(request):
+    return render(request, 'result_num_low.html')
 
 # 모델 결과 : 위험도 높음
 def result_high(request):
@@ -58,9 +58,13 @@ def investigative(request): #수사 및 신고기관
 def victim_guide(request):
     return render(request, 'victim_guide.html')
 
-# 실시간 탐지 페이지 테스트
+# 실시간 탐지 페이지
 def real_time_detectoin(request):
     return render(request, 'real_time_detection.html')
+
+# 정밀검사 페이지
+def text_detection(request):
+    return render(request, 'text_detection.html')
 
 # 번호 조회 페이지
 def number_search(request):
@@ -87,7 +91,7 @@ def number_search(request):
            account_numbers_obj.save()
            return render(request, 'result_num.html', {'phone_numbers': phone_numbers, 'account_numbers': account_numbers, 'search_number': search_number})
         else:
-            return render(request, 'result_low.html', {'search_number': search_number})
+            return render(request, 'result_num_low.html', {'search_number': search_number})
         
     return render(request, 'number_search.html', {'search_number': search_number})
 

@@ -6,8 +6,8 @@ app_name = 'phishing'
 urlpatterns = [
     path('', views.home, name='home'),
     path('notify/', views.notify, name='notify'), #신고 페이지
-    path('result_num/', views.result_num, name='result_num'), #번호 조회 결과 페이지
-    path('result_low/', views.result_low, name='result_low'), #모델 결과 페이지 : 위험도 낮음
+    path('result_num/', views.result_num, name='result_num'), #번호 조회 결과 페이지 : 위험도 높음
+    path('result_low/', views.result_num_low, name='result_low'), #번호 조회 결과 페이지 : 위험도 낮음
     path('result_high/', views.result_high, name='result_high'), #모델 결과 페이지 : 위험도 높음
     path('rel_org/', views.rel_org, name='rel_org'), #관련 기관 리스트
     path('financial/', views.financial, name='financial'), #금융기관 리스트
@@ -17,6 +17,7 @@ urlpatterns = [
 
     # 테스트 페이지
     path('real_time_detection/', views.real_time_detectoin, name='real_time_detection'), #실시간 탐지 페이지
+    path('text_detection/', views.text_detection, name='text_detection'), #정밀검사 페이지
     path('number_search/', views.number_search, name='number_search'), #의심번호 입력
     path('model_test/', views.SimilarityView.as_view(), name='model_test'),
 
