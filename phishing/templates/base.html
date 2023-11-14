@@ -44,6 +44,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
+        {% comment %} 구글 폰트 설정 {% endcomment %}
         #NSK {
             font-family: 'Noto Sans KR', sans-serif;
         }
@@ -52,14 +53,22 @@
             color : white;
         }
 
+        {% comment %} 대응방법 안내 아코디언 관련 {% endcomment %}
         #accordion-btn {
             width : 29rem;
         }
 
+        .accordion.show {
+            margin-bottom : 150px;
+        }
+
+        #accordionExample {
+            margin-bottom: 50px;
+        }
+
         {% comment %} 의심번호 차단 클릭 시 스타일 변경 {% endcomment %}
         .suspicious-blocked {
-            color: #31b0d5; /* 텍스트 색상을 빨간색으로 변경 */
-            /* 추가적인 스타일링을 여기에 추가 */
+            color: #31b0d5; 
         }
 
         {% comment %} .text-mid {

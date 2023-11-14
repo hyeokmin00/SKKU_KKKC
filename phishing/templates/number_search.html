@@ -16,6 +16,7 @@
                 <div class="row">
                     <div class="col-md-4 col-md-push-4">
                         <div class="form-group">
+                            {% comment %} 제출 시 입력값이 반드시 있어야 함 {% endcomment %}
                             <input type="text" id="search_number" name="search_number" value="{{ search_number }}" placeholder="010-1234-5678, 000-000-00000" class="form-control" required>
                         </div>
                     </div>
@@ -27,7 +28,6 @@
                 </div>
             </form>
         </div>
-    </div>
     </div>
 </div>
 {% endblock %}

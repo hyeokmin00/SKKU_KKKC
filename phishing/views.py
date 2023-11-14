@@ -58,7 +58,6 @@ def investigative(request): #수사 및 신고기관
 def victim_guide(request):
     return render(request, 'victim_guide.html')
 
-# ---------------------------------------------------------
 # 실시간 탐지 페이지 테스트
 def real_time_detectoin(request):
     return render(request, 'real_time_detection.html')
@@ -143,7 +142,7 @@ class SimilarityView(View):
         similarity_threshold = 0.5 #유사도 판단 기준값
 
         for idx, text_mail in enumerate(all_text_mails):
-            transcript = text_mail.transcript
+            transcript = text_mail.message
             if transcript:
                 db_embedding = calculate_embedding(transcript, kcbert_model, kcbert_tokenizer) #input 데이터 임베딩과 같은 방식 사용 필요
                 # db_embedding = np.fromstring(transcript, dtype=float, sep=',')

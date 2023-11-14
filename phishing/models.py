@@ -15,15 +15,16 @@ class Organizations(models.Model):
 # 텍스트 테이블 1. 메일, 문자
 class Text_mail(models.Model):
     id = models.AutoField(primary_key=True)
-    filename = models.CharField(max_length=50, null=True)
-    transcript = models.TextField()
-    label = models.BooleanField() #default 설정 가능
+    # filename = models.CharField(max_length=50, null=True)
+    message = models.TextField()
+    label = models.BooleanField(null=True) #default 설정 가능
+    phone_number = models.CharField(max_length=50, null=True)
 
 # 텍스트 테이블 2. KorCCVi
 class Text_KorCCVi(models.Model):
     id = models.AutoField(primary_key=True)
     transcript = models.TextField()
-    label = models.BooleanField()
+    label = models.BooleanField(null=True)
 
 # 음성 파형
 class Wave(models.Model):
@@ -41,6 +42,8 @@ class Account_numbers(models.Model):
     id = models.AutoField(primary_key=True)
     account_number = models.CharField(max_length=50)
     search_cnt = models.IntegerField()
+
+
 
 
 ################
