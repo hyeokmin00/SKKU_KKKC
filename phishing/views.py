@@ -75,8 +75,18 @@ def number_search(request):
         account_numbers = Account_numbers.objects.filter(account_number=search_number)
 
         # 결과에 따라 다른 템플릿으로 렌더링
-        if phone_numbers.exists() or account_numbers.exists():
+        # 전화번호에 있으면
+        if phone_numbers.exists():
+            phone_numbers_obj = phone_numbers.first()
+            phone_numbers_obj.search_cnt += 1
+            phone_numbers_obj.save()
             return render(request, 'result_num.html', {'phone_numbers': phone_numbers, 'account_numbers': account_numbers, 'search_number': search_number})
+        # 계좌번호에 있으면
+        elif account_numbers.exists():
+           account_numbers_obj = account_numbers.first()
+           account_numbers_obj.search_cnt += 1
+           account_numbers_obj.save()
+           return render(request, 'result_num.html', {'phone_numbers': phone_numbers, 'account_numbers': account_numbers, 'search_number': search_number})
         else:
             return render(request, 'result_low.html', {'search_number': search_number})
         

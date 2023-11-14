@@ -22,9 +22,12 @@
                                     <h3 id="NSK">조회 횟수</h3>
                                     <br>
                                     <div class="number text-info">
-                                        {% if phone_numbers.exists or account_numbers.exists %}
-                                            <!-- phone_numbers와 account_numbers를 합친 전체 조회 횟수 -->
-                                            <h2 id="NSK">{{ phone_numbers.count|add:account_numbers.count }}</h2>
+                                        {% if phone_numbers.exists %}
+                                            {% comment %} 전화번호인 경우 {% endcomment %}
+                                            <h2 id="NSK">{{ phone_numbers.first.search_cnt }}</h2>
+                                        {% elif account_numbers.exists %}
+                                            {% comment %} 계좌번호인 경우 {% endcomment %}
+                                            <h2 id="NSK">{{ account_numbers.first.search_cnt }}</h2>
                                         {% else %}
                                             <h2 id="NSK">0</h2>
                                         {% endif %}
@@ -38,19 +41,10 @@
                                 <div class="content">
                                     <div class="icon text-info">
                                         <i class="pe-7s-attention"></i>
-                                    <!-- 번호 위험 여부에 따라 결과 다르게 반환 -->
                                     </div>
-                                    <!-- 데이터베이스에 있는 번호일 경우 -->
-                                    {% if phone_numbers.exists or account_numbers.exists %}
-                                        <p id="NSK">해당 번호는</p>
-                                        <div class="card-title text-info"><h3 id="NSK">의심되는 번호</h3></div>
-                                        <span id="NSK">입니다.</span>
-                                    <!-- 없는 번호일 경우 -->
-                                    {% else %}
-                                        <p id="NSK">해당 번호는</p>
-                                        <div class="card-title text-info"><h3 id="NSK">위험도가 낮은 번호</h3></div>
-                                        <span id="NSK">입니다.</span>
-                                    {% endif %}
+                                    <p id="NSK">해당 번호는</p>
+                                    <div class="card-title text-info"><h3 id="NSK">의심되는 번호</h3></div>
+                                    <span id="NSK">입니다.</span>
                                 </div>
                             </div>
                         </div>

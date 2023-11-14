@@ -34,13 +34,13 @@ class Wave(models.Model):
 class Phone_numbers(models.Model):
     id = models.AutoField(primary_key=True)
     phone_number = models.CharField(max_length=50)
-    count = models.IntegerField()
+    search_cnt = models.IntegerField()
 
 # 번호 2. 계좌번호
 class Account_numbers(models.Model):
     id = models.AutoField(primary_key=True)
     account_number = models.CharField(max_length=50)
-    count = models.IntegerField()
+    search_cnt = models.IntegerField()
 
 
 ################
