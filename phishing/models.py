@@ -19,6 +19,7 @@ class Text_mail(models.Model):
     message = models.TextField()
     label = models.BooleanField(null=True) #default 설정 가능
     phone_number = models.CharField(max_length=50, null=True)
+    message_embedding = models.TextField(null=True)
 
 # 텍스트 테이블 2. KorCCVi
 class Text_KorCCVi(models.Model):

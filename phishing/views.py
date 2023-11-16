@@ -148,7 +148,7 @@ class SimilarityView(View):
         similarity_scores = []
 
         # Set a similarity threshold
-        similarity_threshold = 0.5 #유사도 판단 기준값
+        similarity_threshold = 0.7 #유사도 판단 기준값
 
         for idx, text_mail in enumerate(all_text_mails):
             transcript = text_mail.message

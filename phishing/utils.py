@@ -16,10 +16,3 @@ def calculate_embedding(sentence, model, tokenizer):
     embedding = output.last_hidden_state.mean(dim=1).squeeze().numpy()
     embedding = embedding.astype(float)
     return embedding
-
-
-
-
-
-
-
