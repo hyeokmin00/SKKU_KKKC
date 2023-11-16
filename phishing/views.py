@@ -23,8 +23,8 @@ def notify(request):
     return render(request, 'notify.html')
 
 # 번호 조회 결과 : 위험도 높음
-def result_num(request):
-    return render(request, 'result_num.html')
+def result_num_high(request):
+    return render(request, 'result_num_high.html')
 
 # 번호 조회 결과 : 위험도 낮음
 def result_num_low(request):
@@ -32,7 +32,11 @@ def result_num_low(request):
 
 # 모델 결과 : 위험도 높음
 def result_high(request):
-    return render(request, 'result_high_model.html')
+    return render(request, 'result_model_high.html')
+
+# 모델 결과 : 위험도 낮음
+def result_low(request):
+    return render(request, 'result_model_low.html')
 
 # 기관 정보
 def rel_org(request): #기관 전체
@@ -83,13 +87,13 @@ def number_search(request):
             phone_numbers_obj = phone_numbers.first()
             phone_numbers_obj.search_cnt += 1
             phone_numbers_obj.save()
-            return render(request, 'result_num.html', {'phone_numbers': phone_numbers, 'account_numbers': account_numbers, 'search_number': search_number})
+            return render(request, 'result_num_high.html', {'phone_numbers': phone_numbers, 'account_numbers': account_numbers, 'search_number': search_number})
         # 계좌번호에 있으면
         elif account_numbers.exists():
            account_numbers_obj = account_numbers.first()
            account_numbers_obj.search_cnt += 1
            account_numbers_obj.save()
-           return render(request, 'result_num.html', {'phone_numbers': phone_numbers, 'account_numbers': account_numbers, 'search_number': search_number})
+           return render(request, 'result_num_high.html', {'phone_numbers': phone_numbers, 'account_numbers': account_numbers, 'search_number': search_number})
         else:
             return render(request, 'result_num_low.html', {'search_number': search_number})
         
