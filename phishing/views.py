@@ -32,7 +32,8 @@ def result_num_low(request):
 
 # 모델 결과 : 위험도 높음
 def result_high(request):
-    return render(request, 'result_model_high.html')
+    is_blocking_active = False
+    return render(request, 'result_model_high.html', {'is_blocking_active':is_blocking_active})
 
 # 모델 결과 : 위험도 낮음
 def result_low(request):
@@ -167,8 +168,8 @@ class SimilarityView(View):
         return JsonResponse({'input_sentence': input_sentence, 'similarities': similarity_scores})
 
 
-# def guide_test(request):
-#     return render(request, 'guide_test.html',)
+def guide_test(request):
+    return render(request, 'guide_test.html',)
 
 # def test(request):
 #     return render(request, 'home_try.html')

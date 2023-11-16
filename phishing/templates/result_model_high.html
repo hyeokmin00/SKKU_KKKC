@@ -51,12 +51,26 @@
                                 {% comment %} 의심번호 차단하기 {% endcomment %}
                                 <a href="">
                                     <div class="content">
-                                        <div class="icon text-gray">
-                                            <i class="pe-7s-switch"></i>
-                                        </div>
                                         <br>
                                         {% comment %} 의심번호 차단하면 차단한 번호 목록 볼 수 있게 {% endcomment %}
-                                        <h3 id="NSK">의심번호 차단하기</h3>
+                                        {% comment %} 의심번호 차단 중일 때 {% endcomment %}
+                                        {% if is_blocking_active %}
+                                            <div class="icon text-info">
+                                                <i class="pe-7s-switch"></i>
+                                            </div>
+                                            <h3 id="NSK">의심번호 차단 중</h3>
+                                            {% comment %} 예시 번호. 추후 입력 및 보유 데이터에 따라 달라질 수 있게 수정 {% endcomment %}
+                                            <br>
+                                            <ul id="blocked_numbers_list" class="justify-content-center" style="list-style: none;">
+                                                <li>010-4238-2348</li>
+                                                <li>00072928475</li>
+                                            </ul>
+                                        {% else %}
+                                            <div class="icon text-gray">
+                                                <i class="pe-7s-switch"></i>
+                                            </div>
+                                            <h3 id="NSK">의심번호 차단하기</h3>
+                                        {% endif %}
                                         <br>
                                     </div>
                                 </a>

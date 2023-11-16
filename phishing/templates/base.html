@@ -325,6 +325,9 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     $(document).ready(function(){ //문서가 로드되면 실행
+        var isBlockingActive = false;  // 초기 값은 비활성화
+        var blockedNumbersList = $("#blocked_numbers_list");
+
         $("#number_block").click(function(e){
             e.preventDefault(); // 클릭하면 브라우저의 기본 동작 방지 => 기본 링크 동작 방지
             // 클릭 시 실행
@@ -333,10 +336,13 @@
             if (currentText === "의심번호 차단 중") {
                 $("#number_block h3#NSK").text("의심번호 차단하기"); //id가 NSK인 h3 요소의 텍스트 가져와서 currentText에 저장
                 $("#number_block").removeClass("suspicious-blocked"); // "suspicious-blocked" 클래스를 제거하여 스타일 변경
+                blockedNumbersList.hide();  // Hide the blocked numbers list
             } else {
                 $("#number_block h3#NSK").text("의심번호 차단 중");
                 $("#number_block").addClass("suspicious-blocked"); // 클래스를 추가하여 스타일 변경
+                blockedNumbersList.show();  // Show the blocked numbers list
             }
+            isBlockingActive = !isBlockingActive;  // 상태를 토글
         });
     });
 </script>
