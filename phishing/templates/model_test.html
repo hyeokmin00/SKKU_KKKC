@@ -10,26 +10,27 @@
 <body> 
     <form method="post" action="{% url 'phishing:model_test' %}">
         {% csrf_token %}
-        <label for="input_sentence">Input Sentence:</label>
-        <input type="text" name="input_sentence" id="input_sentence" required>
+        {% comment %} <label for="input_sentence">Input Sentence:</label> {% endcomment %}
+        {% comment %} <input type="text" name="input_sentence" id="input_sentence" required> {% endcomment %}
         <button type="submit">Calculate Similarity</button>
     </form>
 
-    {% if input_sentence %}
+    {% comment %} {% if input_sentence %}
         <h2>Input Sentence: {{ input_sentence }}</h2>
         {% if similarities %}
             <h3>Similar Sentences:</h3>
-            <ul>
+            <ul> {% endcomment %}
                 {% comment %} 결과 반환 {% endcomment %}
-                {% for similarity in similarities %}
+                {% comment %} {% for similarity in similarities %} {% endcomment %}
                 {% comment %} input data : 임베딩 전 원본 데이터 반환
                             db data : 토크나이저 인덱스로 텍스트 데이터 반환 {% endcomment %}
-                    <li>{{ similarity.text }} - Similarity: {{ similarity.similarity }}</li>
+                    {% comment %} <li>{{ similarity.text }} - Similarity: {{ similarity.similarity }}</li>
                 {% endfor %}
             </ul>
         {% else %}
             <p>Debug: No similar sentences found.</p>
         {% endif %}
-    {% endif %}
+    {% endif %} {% endcomment %}
+
 </body>
 </html>

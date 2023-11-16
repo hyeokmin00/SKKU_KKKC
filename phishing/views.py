@@ -108,7 +108,6 @@ def agreement(request):
 
 
 ################
-
 from django.shortcuts import render
 from django.views import View
 from django.http import JsonResponse
@@ -127,45 +126,80 @@ import numpy as np
 
 from sklearn.preprocessing import normalize
 
+#KcBERT
+# class SimilarityView(View):
+#     template_name = 'model_test.html'
+
+#     def get(self, request):
+#         return render(request, 'model_test.html')
+
+#     def post(self, request):
+#         input_sentence = request.POST.get('input_sentence')
+
+#         # Load KcBERT model
+#         kcbert_model, kcbert_tokenizer = load_kcbert_model()
+
+#         # Calculate embeddings
+#         input_embedding = calculate_embedding(input_sentence, kcbert_model, kcbert_tokenizer) 
+#         input_embedding_normalized = normalize(input_embedding.reshape(1, -1))  #db 데이터와 비교 위해 정규화 # L2 정규화 적용
+
+#         # Calculate similarity
+#         all_text_mails = Text_mail.objects.all()
+#         similarity_scores = []
+
+#         # Set a similarity threshold
+#         similarity_threshold = 0.7 #유사도 판단 기준값
+
+#         for idx, text_mail in enumerate(all_text_mails):
+#             transcript = text_mail.message
+#             if transcript:
+#                 db_embedding = calculate_embedding(transcript, kcbert_model, kcbert_tokenizer) #input 데이터 임베딩과 같은 방식 사용 필요
+#                 # db_embedding = np.fromstring(transcript, dtype=float, sep=',')
+#                 # print(db_embedding)
+#                 # print(idx)
+#                 if db_embedding.size > 0:
+#                     db_embedding_normalized = normalize(db_embedding.reshape(1, -1))  # L2 정규화 적용
+#                     similarity_score = cosine_similarity(input_embedding_normalized, db_embedding_normalized)[0][0]
+#                     # print(f"Similarity with '{transcript}': {similarity_score}")
+#                     if similarity_score > similarity_threshold: #유사도 0.5 초과면 유사도 있다고 판단, 리스트에 내용 추가
+#                         similarity_scores.append({'text': transcript, 'similarity': similarity_score})
+
+#         print("Final Similarities:", similarity_scores) #html로 결과 반환
+#         return JsonResponse({'input_sentence': input_sentence, 'similarities': similarity_scores})
+
+import pandas as pd
+# CSV 파일에서 데이터를 읽어옴
+data = pd.read_csv('phishing\KcBERT_Input_Embedding.csv')
+# 캐시용 딕셔너리 생성
+embedding_cache = {}
 class SimilarityView(View):
     template_name = 'model_test.html'
-
     def get(self, request):
         return render(request, 'model_test.html')
-
     def post(self, request):
-        input_sentence = request.POST.get('input_sentence')
-
-        # Load KcBERT model
-        kcbert_model, kcbert_tokenizer = load_kcbert_model()
-
-        # Calculate embeddings
-        input_embedding = calculate_embedding(input_sentence, kcbert_model, kcbert_tokenizer) 
-        input_embedding_normalized = normalize(input_embedding.reshape(1, -1))  #db 데이터와 비교 위해 정규화 # L2 정규화 적용
-
-        # Calculate similarity
-        all_text_mails = Text_mail.objects.all()
         similarity_scores = []
-
-        # Set a similarity threshold
-        similarity_threshold = 0.7 #유사도 판단 기준값
-
-        for idx, text_mail in enumerate(all_text_mails):
-            transcript = text_mail.message
+        similarity_threshold = 0.7  # 유사도 판단 기준값
+        # Load the precomputed embeddings from the CSV file
+        for index, row in data.iterrows():
+            transcript = row['Input_data']
             if transcript:
-                db_embedding = calculate_embedding(transcript, kcbert_model, kcbert_tokenizer) #input 데이터 임베딩과 같은 방식 사용 필요
-                # db_embedding = np.fromstring(transcript, dtype=float, sep=',')
-                # print(db_embedding)
-                # print(idx)
-                if db_embedding.size > 0:
-                    db_embedding_normalized = normalize(db_embedding.reshape(1, -1))  # L2 정규화 적용
-                    similarity_score = cosine_similarity(input_embedding_normalized, db_embedding_normalized)[0][0]
-                    # print(f"Similarity with '{transcript}': {similarity_score}")
-                    if similarity_score > similarity_threshold: #유사도 0.5 초과면 유사도 있다고 판단, 리스트에 내용 추가
-                        similarity_scores.append({'text': transcript, 'similarity': similarity_score})
+                db_embedding = row['Input_data']  # Adjust this line according to your actual column name
+                # Check if the transcript's embedding is already in the cache, if not, calculate similarity and add to cache
+                if transcript in embedding_cache:
+                    similarity_score = embedding_cache[transcript]
+                else:
+                    # Calculate similarity between transcript and db_embedding
+                    similarity_score = cosine_similarity([transcript], [db_embedding])[0][0]
+                    embedding_cache[transcript] = similarity_score
+                if similarity_score > similarity_threshold:
+                    similarity_scores.append({'text': transcript, 'similarity': similarity_score})
+        similarity_scores.sort(key=lambda x: x['similarity'], reverse=True)
+        top_similarity_scores = similarity_scores[:10]
+        print("Top 10 Similarities:", top_similarity_scores)
+        return JsonResponse({'similarities': top_similarity_scores})
 
-        print("Final Similarities:", similarity_scores) #html로 결과 반환
-        return JsonResponse({'input_sentence': input_sentence, 'similarities': similarity_scores})
+
+
 
 
 def guide_test(request):
