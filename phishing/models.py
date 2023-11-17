@@ -31,7 +31,6 @@ class Text_KorCCVi(models.Model):
 class Wave(models.Model):
     id = models.AutoField(primary_key=True)
     spectrogram = models.BigIntegerField()
-
 # 번호 1. 전화번호
 class Phone_numbers(models.Model):
     id = models.AutoField(primary_key=True)

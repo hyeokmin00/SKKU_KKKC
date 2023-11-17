@@ -21,7 +21,6 @@ urlpatterns = [
     
     # 테스트 페이지
     path('model_test/', views.SimilarityView.as_view(), name='model_test'),
-    # path('calculate-similarity/', views.SimilarityView.as_view(), name='calculate-similarity'),
 
     path('guide_test/', views.guide_test, name='guide_test' ),    
 ]
