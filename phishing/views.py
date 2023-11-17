@@ -12,7 +12,12 @@ from .utils import load_kcbert_model, calculate_embedding
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
+##### 테스트 페이지
+def guide_test(request):
+    return render(request, 'guide_test.html',)
 
+# def test(request):
+#     return render(request, 'home_try.html')
 
 # Create your views here.
 def home(request):
@@ -108,23 +113,23 @@ def agreement(request):
 
 
 ################
-from django.shortcuts import render
-from django.views import View
-from django.http import JsonResponse
-from .models import Text_mail
-from .utils import load_kcbert_model, calculate_embedding
-from sklearn.metrics.pairwise import cosine_similarity
-import numpy as np
+# from django.shortcuts import render
+# from django.views import View
+# from django.http import JsonResponse
+# from .models import Text_mail
+# from .utils import load_kcbert_model, calculate_embedding
+# from sklearn.metrics.pairwise import cosine_similarity
+# import numpy as np
 
-from django.shortcuts import render
-from django.views import View
-from django.http import JsonResponse
-from .models import Text_mail
-from .utils import load_kcbert_model, calculate_embedding
-from sklearn.metrics.pairwise import cosine_similarity
-import numpy as np
+# from django.shortcuts import render
+# from django.views import View
+# from django.http import JsonResponse
+# from .models import Text_mail
+# from .utils import load_kcbert_model, calculate_embedding
+# from sklearn.metrics.pairwise import cosine_similarity
+# import numpy as np
 
-from sklearn.preprocessing import normalize
+# from sklearn.preprocessing import normalize
 
 #KcBERT
 # class SimilarityView(View):
@@ -168,14 +173,20 @@ from sklearn.preprocessing import normalize
 #         return JsonResponse({'input_sentence': input_sentence, 'similarities': similarity_scores})
 
 import pandas as pd
+from django.shortcuts import render
+import torch
+import torch.nn.functional as F
 # CSV 파일에서 데이터를 읽어옴
 data = pd.read_csv('phishing\KcBERT_Input_Embedding.csv')
 # 캐시용 딕셔너리 생성
 embedding_cache = {}
+
 class SimilarityView(View):
     template_name = 'model_test.html'
+
     def get(self, request):
         return render(request, 'model_test.html')
+
     def post(self, request):
         similarity_scores = []
         similarity_threshold = 0.7  # 유사도 판단 기준값
@@ -183,27 +194,98 @@ class SimilarityView(View):
         for index, row in data.iterrows():
             transcript = row['Input_data']
             if transcript:
-                db_embedding = row['Input_data']  # Adjust this line according to your actual column name
-                # Check if the transcript's embedding is already in the cache, if not, calculate similarity and add to cache
-                if transcript in embedding_cache:
-                    similarity_score = embedding_cache[transcript]
-                else:
-                    # Calculate similarity between transcript and db_embedding
-                    similarity_score = cosine_similarity([transcript], [db_embedding])[0][0]
-                    embedding_cache[transcript] = similarity_score
-                if similarity_score > similarity_threshold:
-                    similarity_scores.append({'text': transcript, 'similarity': similarity_score})
+                try:
+                    # 데이터가 'tensor'로 시작하는 문자열인 경우
+                    if isinstance(transcript, str) and transcript.startswith("tensor("):
+                        # 이 부분에서 텐서 값을 파싱하여 사용하는 코드 추가
+                        tensor_value = torch.tensor(eval(transcript))
+                        transcript_tensor = tensor_value.numpy()  # 텐서를 NumPy 배열로 변환
+                    else:
+                        # 데이터가 문자열로 표현된 리스트인 경우
+                        db_embedding = ast.literal_eval(transcript)
+                        transcript_tensor = np.array(db_embedding)
+
+                    # 나머지 코드는 그대로 유지
+                    if transcript in embedding_cache:
+                        similarity_score = embedding_cache[transcript]
+                    else:
+                        db_embedding_tensor = torch.tensor(eval(db_embedding))  # 변환된 텍스트를 텐서로 변환
+                        # Calculate cosine similarity between transcript and db_embedding tensors
+                        similarity_score = F.cosine_similarity(transcript_tensor.unsqueeze(0), db_embedding_tensor.unsqueeze(0)).item()
+                        embedding_cache[transcript] = similarity_score
+
+                    if similarity_score > similarity_threshold:
+                        similarity_scores.append({'text': transcript, 'similarity': similarity_score})
+
+                except (ValueError, SyntaxError) as e:
+                    print(f"Error processing transcript: {e}")
+                    # 오류 발생 시 계속 진행하지 않고 다음 데이터로 넘어갈 수 있도록 continue 사용
+
         similarity_scores.sort(key=lambda x: x['similarity'], reverse=True)
         top_similarity_scores = similarity_scores[:10]
         print("Top 10 Similarities:", top_similarity_scores)
         return JsonResponse({'similarities': top_similarity_scores})
 
+# import pandas as pd
+# from django.shortcuts import render
+# import torch
+# import torch.nn.functional as F
+# import ast
+# import numpy as np
+# import re
+# # CSV 파일에서 데이터를 읽어옴
+# data = pd.read_csv('phishing\KcBERT_Input_Embedding.csv')
+# # 캐시용 딕셔너리 생성
+# embedding_cache = {}
 
+# class SimilarityView(View):
+#     template_name = 'model_test.html'
 
+#     def get(self, request):
+#         return render(request, 'model_test.html')
 
+#     def post(self, request):
+#         similarity_scores = []
+#         similarity_threshold = 0.7  # 유사도 판단 기준값
+#         # Load the precomputed embeddings from the CSV file
+#         for index, row in data.iterrows():
+#             transcript = row['Input_data']
+#             if transcript:
+#                 try:
+#                     # 데이터가 'tensor'로 시작하는 문자열인 경우
+#                     if isinstance(transcript, str) and transcript.startswith("tensor("):
+#                         # 정규표현식을 사용하여 'tensor([...])'에서 'tensor('와 ')'를 제외한 부분을 추출
+#                         match = re.search(r'tensor\((.*)\)', transcript)
+#                         # 추출한 문자열을 다시 텐서로 변환
+#                         if match:
+#                             tensor_str = match.group(1)
+#                             # 추출한 문자열을 다시 텐서로 변환
+#                             tensor_value = torch.tensor(ast.literal_eval(tensor_str))
+#                             transcript_tensor = tensor_value.numpy()  # 텐서를 NumPy 배열로 변환
+#                         else:
+#                             continue  # match가 없으면 다음 데이터로 건너뜀
+#                     else:
+#                         # 데이터가 문자열로 표현된 리스트인 경우
+#                         db_embedding = ast.literal_eval(transcript)
+#                         transcript_tensor = np.array(db_embedding)
 
-def guide_test(request):
-    return render(request, 'guide_test.html',)
+#                     # 나머지 코드는 그대로 유지
+#                     if transcript in embedding_cache:
+#                         similarity_score = embedding_cache[transcript]
+#                     else:
+#                         db_embedding_tensor = torch.tensor(eval(db_embedding))  # 변환된 텍스트를 텐서로 변환
+#                         # Calculate cosine similarity between transcript and db_embedding tensors
+#                         similarity_score = F.cosine_similarity(torch.tensor(transcript_tensor).unsqueeze(0), db_embedding_tensor.unsqueeze(0)).item()
+#                         embedding_cache[transcript] = similarity_score
 
-# def test(request):
-#     return render(request, 'home_try.html')
+#                     if similarity_score > similarity_threshold:
+#                         similarity_scores.append({'text': transcript, 'similarity': similarity_score})
+
+#                 except (ValueError, SyntaxError) as e:
+#                     print(f"Error processing transcript: {e}")
+#                     # 오류 발생 시 계속 진행하지 않고 다음 데이터로 넘어갈 수 있도록 continue 사용
+
+#         similarity_scores.sort(key=lambda x: x['similarity'], reverse=True)
+#         top_similarity_scores = similarity_scores[:10]
+#         print("Top 10 Similarities:", top_similarity_scores)
+#         return JsonResponse({'similarities': top_similarity_scores})
