@@ -1,5 +1,7 @@
 {% extends "./base.html" %}
 {% block main %}
+{% load static %}
+
 <div class="section section-contact">
     <div class="container">
         <div class="text-area">
@@ -7,7 +9,12 @@
                 <h1 id="NSK">신고하기</h1>
                 <div class="separator separator-info">✻</div>
                 <h5 id="NSK" class="text-gray">기관을 선택해주세요.</h5>
-
+                <br>
+                <audio controls="controls">
+                    <source src="{% static 'audios/notify_html.mp3' %}" type="audio/mpeg">
+                    notify_html.mp3
+                </audio>
+                
                 <!-- 금융기관/수사기관 선택해 신고하기 -->
                 <div class="section">
                     <div class="container-fluid">        

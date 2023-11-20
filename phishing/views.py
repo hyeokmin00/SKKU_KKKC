@@ -68,9 +68,9 @@ def investigative(request): #수사 및 신고기관
 def victim_guide(request):
     return render(request, 'victim_guide.html')
 
-# 실시간 탐지 페이지
-def real_time_detectoin(request):
-    return render(request, 'real_time_detection.html')
+# # 실시간 탐지 페이지
+# def real_time_detectoin(request):
+#     return render(request, 'real_time_detection.html')
 
 # 정밀검사 페이지
 def text_detection(request):
@@ -368,35 +368,52 @@ embedding_cache = {}
 #         top_similarity_scores = similarity_scores[:10]
 #         print("Top 10 Similarities:", top_similarity_scores)
 #         return JsonResponse({'similarities': top_similarity_scores})
-
+import pandas as pd
+from django.shortcuts import render
+import torch
+import torch.nn.functional as F
 import ast
+import json
+# CSV 파일에서 데이터를 읽어옴
+data = pd.read_csv('phishing\KcBERT_Input_test.csv')
+# 캐시용 딕셔너리 생성
+embedding_cache = {}
 class SimilarityView(View):
     template_name = 'model_test.html'
     def get(self, request):
-        return render(request, 'model_test.html')
+        return render(request, 'real_time_detection.html') #model_test.html
     def post(self, request):
         similarity_scores = []
         similarity_threshold = 0.7  # 유사도 판단 기준값
         transcript = data['Input_data']
+        input_text = data['Text']
+        input_num = data['Phone_number']
         all_text_mails = Text_mail.objects.all()
         # text_embedding = Text_mail.objects.values('message_embedding')
         # print(text_embedding[:1])
+        # print(transcript)
+        # print(input_text)
+        # print(input_num)
         transcript = transcript.values[0]
+        input_text = input_text.values[0]
+        input_num = input_num.values[0]
+        # print()
+        # print(transcript)
+        # print(input_text)
+        # print(input_num)
 
+        # 테스트 말고 실제 운영 가정하는 경우 input data가 text로 입력 들어왔을 때를 고려해 임베딩 진행 과정 필요할 듯
 
-        # dot product시 하나씩 유사도를 계산하는 것은 비효율 (1,768)*(768,1) 을 7400번 하는 것은 불필요
-        # ==> (7400, 768) * (768, 1)
+        input_data = []
 
-        # db_value -> 행렬로 변환해 input data와 연산하기
-
-        for i in all_text_mails[:20]:
-            print(i.phone_number)
+        for i in all_text_mails[:50]:
+            # print(i.phone_number)
             db_value = np.array(ast.literal_eval(i.message_embedding[7:-1])).reshape(-1, 1)
             # print(np.array(ast.literal_eval(i.message_embedding)[7:-1]))
             np_value = np.array(eval(transcript[7:-1]))
 
             similarity_score = np.dot(np_value, db_value) / (np.linalg.norm(np_value) * np.linalg.norm(db_value))
-            print(similarity_score.shape)
+            # print(similarity_score.shape)
 
             if similarity_score > similarity_threshold:
                 similarity_scores.append({
@@ -406,10 +423,93 @@ class SimilarityView(View):
                     'similarity': similarity_score[0][0] # 행렬연산시 변경되어야 함.
 
                     })
-        similarity_scores.sort(key=lambda x: x['similarity'], reverse=True)
+                # input data 중복없이 추가하기
+                if input_text not in [item['text'] for item in input_data] and input_num not in [item['phone_number'] for item in input_data]:
+                    input_data.append({
+                        'text':input_text,
+                        'phone_number':input_num
+                    })
+        
+        # input_data = json.dumps(input_data, ensure_ascii=False)
+        result_cnt = len(input_data) #threshold 넘는 input data 개수 = 의심건수
+        cat = "실시간"
+
+        similarity_scores.sort(key=lambda x: x['similarity'], reverse=True) #유사도 높은 순으로 정렬
         top_similarity_scores = similarity_scores[:10]
         # print(type(similarity_scores))
+        print(len(input_data))
+        print('input data :', input_data)
         print("Top 10 Similarities : ", top_similarity_scores)
-        return JsonResponse({'similarities': top_similarity_scores},  safe=False, json_dumps_params={'ensure_ascii': False})
+        
+        # input data만 보여주기
+        # return JsonResponse({'inputs':input_data},  safe=False, json_dumps_params={'ensure_ascii': False})
+        # 유사도 결과만 보여주기
+        # return JsonResponse({'similarities': top_similarity_scores},  safe=False, json_dumps_params={'ensure_ascii': False})
 
-        # return JsonResponse({'similarities': top_similarity_scores})
+        # 결과에 따라 다른 페이지로 연결
+        # input data가 유사도 기준값을 넘는 경우
+        if similarity_scores:
+            result_data = [{'text':item['text'], 'sim':item['similarity']} for item in top_similarity_scores]
+            return render(request, 'result_model_high.html', {'inputs':input_data, 'result_cnt':result_cnt, 'cat':cat, 'similarities':top_similarity_scores})
+        # input data가 유사도 기준값을 넘지 않는 경우
+        else:
+            return render(request, 'result_model_low.html', {'inputs':input_data, 'cat':cat})
+        
+# 실시간 탐지 페이지
+# SimilarityView를 실시간 탐지 페이지 html에 바로 연결하면 돼서 이 부분은 필요 없을 듯
+# 버튼 클릭 없이 페이지를 로드했을 때 POST 요청을 보내 실행하고 싶다면 사용 고려해보기
+# def real_time_detectoin(request):
+#     rt_detection = SimilarityView() #SimilarityView 클래스의 인스턴스를 생성
+#     return render(request, 'real_time_detection.html', {'similarity_data':rt_detection})
+    # return rt_detection.post(request)
+    # SimilarityView 인스턴스의 post 메서드를 호출 -> SimilarityView의 POST 요청 처리 로직이 실행
+    # post 메서드가 반환한 결과는 return rt_detection.post(request)를 통해 real_time_detection 함수의 반환 값이 됨
+
+##############################################
+# class SimilarityView(View):
+#     template_name = 'model_test.html'
+#     def get(self, request):
+#         return render(request, 'model_test.html')
+#     def post(self, request):
+#         similarity_scores = []
+#         similarity_threshold = 0.7  # 유사도 판단 기준값
+#         transcript = data['Input_data']
+#         all_text_mails = Text_mail.objects.all()
+#         # text_embedding = Text_mail.objects.values('message_embedding')
+#         # print(text_embedding[:1])
+#         transcript = transcript.values[0]
+
+
+#         # dot product시 하나씩 유사도를 계산하는 것은 비효율 (1,768)*(768,1) 을 7400번 하는 것은 불필요
+#         # ==> (7400, 768) * (768, 1)
+
+#         # db_value -> 행렬로 변환해 input data와 연산하기
+
+#         for i in all_text_mails[:20]:
+#             print(i.phone_number)
+#             db_value = np.array(ast.literal_eval(i.message_embedding[7:-1])).reshape(-1, 1)
+#             # print(np.array(ast.literal_eval(i.message_embedding)[7:-1]))
+#             np_value = np.array(eval(transcript[7:-1]))
+
+#             similarity_score = np.dot(np_value, db_value) / (np.linalg.norm(np_value) * np.linalg.norm(db_value))
+#             print(similarity_score.shape)
+
+#             if similarity_score > similarity_threshold:
+#                 similarity_scores.append({
+#                     'text': i.message,
+#                     # 'text': transcript, 
+#                     # 'similarity': similarity_score
+#                     'similarity': similarity_score[0][0] # 행렬연산시 변경되어야 함.
+
+#                     })
+#         similarity_scores.sort(key=lambda x: x['similarity'], reverse=True)
+#         top_similarity_scores = similarity_scores[:10]
+#         # print(type(similarity_scores))
+#         print("Top 10 Similarities : ", top_similarity_scores)
+#         return JsonResponse({'similarities': top_similarity_scores},  safe=False, json_dumps_params={'ensure_ascii': False})
+
+#         # return JsonResponse({'similarities': top_similarity_scores})
+
+##### 테스트 페이지
+def test_result(request):
+    return render(request, 'ppt_result.html')

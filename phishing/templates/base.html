@@ -66,6 +66,19 @@
             margin-bottom: 50px;
         }
 
+        {% comment %} 실시간 탐지 페이지 버튼 배열 수정 {% endcomment %}
+        /* model_test.html */
+        .button-container {
+            /* 버튼 한 행으로 */
+            display: flex; 
+            /* 버튼 간격 */
+            gap: 10px;
+            /* 가로 중앙에 배치 */
+            align-items: center;
+            justify-content: center;
+        }
+
+        {% comment %} 빈 공간 지정 {% endcomment %}
         {% comment %} 의심번호 차단 클릭 시 스타일 변경 {% endcomment %}
         .suspicious-blocked {
             color: #31b0d5; 
@@ -83,6 +96,11 @@
             margin: 10px;
             padding: 2em;
         }
+
+        {% comment %} #audio-container {
+            position: relative;
+            margin-top: 0; /* 필요에 따라 조정하세요. */
+        } {% endcomment %}
 
     </style>
 </head>

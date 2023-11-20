@@ -1,13 +1,22 @@
 {% extends "./base.html" %}
 {% block main %}
+{% load static %}
 
 <div class="section section-presentation-page">
+    {% comment %} <div style="width: 150px; height: 150px;"></div> {% endcomment %}
     <div class="parallax filter filter-color-blue">
+        <div class="empty-space"></div>
         <div class="image" style="background-image:url('assets/img/header-4.jpeg')">
         </div>
         <div class="container">
             <div class="content">
-                <p><span id="NSK">BopiBopi</span></p>
+                <div id="audio-container">
+                    <audio controls style="position: relative; top: 1em; left: 0;">
+                        <source src="{% static 'audios\home_html.mp3' %}" type="audio/mpeg">
+                        home_html.mp3   
+                    </audio>
+                </div>
+                {% comment %} <p><span id="NSK">BopiBopi</span></p> {% endcomment %}
                 <h1 id="NSK" class="title-modern">피싱 탐지 시스템</h1>
                 <div class="separator">♦</div>
                 <h3 id="NSK">보이스피싱이 의심된다면?</h3>

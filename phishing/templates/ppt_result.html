@@ -1,29 +1,17 @@
 {% extends "./base.html" %}
 {% block main %}
-{% comment %} 위험도 높음 {% endcomment %}
+{% comment %} 정밀 탐지 결과 페이지 시나리오 {% endcomment %}
 <div class="section section-contact">
     <div class="container">
         <div class="text-area">
             <div class="title">
                 <h1 id="NSK">탐지 결과</h1>
             <div class="separator separator-info">✻</div>
-            <h4 id="NSK" class="text-gray">{{ cat }} 탐지 결과입니다.</h4>
+            <h4 id="NSK" class="text-gray">정밀 탐지 결과입니다.</h4>
 
             <div class="section section-cards">
                 <div class="separator-container">        
                     <div class="row justify-content-center">
-                        {% comment %} <div class="col-md-4">
-                            <div class="card card-plain">
-                                <div class="content">
-                                    <div class="icon text-info">
-                                        <i class="pe-7s-attention"></i>
-                                    </div>
-                                    <p id="NSK">해당 번호/문자는</p>
-                                    <div class="card-title text-info"><h3 id="NSK">의심되는 번호/문자</h3></div>
-                                    <span id="NSK">입니다.</span>
-                                </div>
-                            </div>
-                        </div> {% endcomment %}
 
                         <div class="col-md-4">
                             <div class="card card-plain">
@@ -35,12 +23,12 @@
                                         <h3 id="NSK" class="text-gray">의심내용</h3>
                                         <br>
                                         <div style="display: inline-block;">
-                                            <h2 id="NSK" class="number text-info" style="display: inline; color: your_color;">{{ result_cnt }}</h2>
+                                            <h2 id="NSK" class="number text-info" style="display: inline; color: your_color;">7</h2>
                                         </div>
                                         <h3 id="NSK" style="display: inline;">건</h3>
                                         <br>
                                         <br>
-                                        <!-- <h4 id="NSK">세부내용 확인하기</h4> -->
+                                        <h4 id="NSK">세부내용 확인하기</h4>
                                         <br>
                                     </div>
                                 </a>
@@ -59,9 +47,13 @@
                                         <div style="display: inline-block;">
                                             <!-- <h2 id="NSK" class="number text-info" style="display: inline; color: your_color;">12</h2> -->
                                             <ul id="NSK" style="list-style: none; text-align: center;">
-                                                {% for data in inputs %}
-                                                    <li>{{ data.phone_number }}</li>
-                                                {% endfor %}
+                                                <li>010-4843-9186</li>
+                                                <li>010-2278-0274</li>
+                                                <li>0079275934</li>
+                                                <li>0024597203</li>
+                                                <li>010-9078-1629</li>
+                                                <li>010-6634-1456</li>
+                                                <li>001693207563</li>
                                             </ul>
                                         </div>
                                     </div>

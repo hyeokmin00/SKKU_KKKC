@@ -1,13 +1,13 @@
 {% extends "./base.html" %}
 {% block main %}
-{% comment %} 위험도 높음 {% endcomment %}
+{% comment %} 위험도 낮음 {% endcomment %}
 <div class="section section-contact">
     <div class="container">
         <div class="text-area">
             <div class="title">
                 <h1 id="NSK">탐지 결과</h1>
             <div class="separator separator-info">✻</div>
-            <h4 id="NSK" class="text-gray">실시간/정밀 탐지 결과입니다.</h4>
+            <h4 id="NSK" class="text-gray">{{ cat }} 탐지 결과입니다.</h4>
 
             <div class="section section-cards">
                 <div class="separator-container">        
@@ -20,13 +20,15 @@
                                             <i class="pe-7s-attention"></i>
                                         </div>
                                         <h3 id="NSK" class="text-gray">탐지내용</h3>
+                                        <br>
                                         <div style="display: inline-block;">
                                             <h2 id="NSK" class="number text-info" style="display: inline; color: your_color;">12</h2>
                                         </div>
                                         <h3 id="NSK" style="display: inline;">건</h3>
                                         <br>
                                         <br>
-                                        <h4 id="NSK">세부내용 확인하기</h4>
+                                        <!-- 세부 내용 확인(input text) 관련은 추후 진행 -->
+                                        <!-- <h4 id="NSK">세부내용 확인하기</h4> -->
                                         <br>
                                     </div>
                                 </a>

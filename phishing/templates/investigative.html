@@ -1,11 +1,17 @@
 {% extends "./base.html" %}
 {% block main %}
+{% load static %}
+
 <div class="section section-contact">
     <div class="container">
         <div class="text-area">
             <div class="title">
                 <h1 id="NSK">수사 및 신고기관 연락처</h1>
                 <div class="separator separator-info">✻</div>
+                <audio controls="controls">
+                    <source src="{% static 'audios/investigative_html.mp3' %}" type="audio/mpeg">
+                    investigative_html.mp3
+                </audio>
             </div>
 
             <div class="section section-cards">

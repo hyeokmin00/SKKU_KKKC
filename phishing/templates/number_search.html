@@ -1,6 +1,7 @@
 {% extends "./base.html" %}
 {% block main %}
-<!-- 전체 폰트 조정하기 -->
+{% load static %}
+
 <div class="section section-contact">
     <div class="container">
         <div class="text-area">
@@ -8,6 +9,13 @@
                 <h1 id='NSK'>의심 번호 조회</h1>
                 <div class="separator separator-info">✻</div>
                 <h5 id="NSK" class="text-gray">의심되는 전화번호, 계좌번호를 입력해주세요.</h5>
+                <br>
+                <div id="audio-container">
+                    <audio controls style="position: absolute; top: 2em; left: 0;">
+                        <source src="{% static 'audios/number_search_html.mp3' %}" type="audio/mpeg">
+                        number_search_html.mp3
+                    </audio>
+                </div>
             </div>
 
         <div class="contact-form">
