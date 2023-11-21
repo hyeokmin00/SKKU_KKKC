@@ -114,6 +114,7 @@ h3, .h3 {
   line-height: 1.05em;
   margin-top: 15px;
   margin-bottom: 15px;
+  font-weight: bold;
 }
 
 h4, .h4 {
@@ -126,9 +127,9 @@ h5 {
 }
 
 p {
-  font-size: 16px;
+  font-size: 26px;
   line-height: 1.6em;
-  font-weight: 400;
+  font-weight: bold;
   margin: 0 0 .75em;
 }
 
@@ -616,7 +617,7 @@ a.carousel-control span.fa {
 .btn.btn-fill,
 .navbar .navbar-nav > li > a.btn.btn-fill {
   color: #FFFFFF;
-  background-color: #888888;
+  background-color: #00abc0;
   opacity: 1;
   filter: alpha(opacity=100);
 }
@@ -753,7 +754,7 @@ a.carousel-control span.fa {
 
 .btn-info,
 .navbar .navbar-nav > li > a.btn-info {
-  border-color: #00abc0;
+  border-color: black;
   color: #00abc0;
 }
 .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open > .btn-info.dropdown-toggle,
@@ -776,7 +777,7 @@ a.carousel-control span.fa {
 .btn-info.btn-fill,
 .navbar .navbar-nav > li > a.btn-info.btn-fill {
   color: #FFFFFF;
-  background-color: #00abc0;
+  background-color: orangered;
   opacity: 1;
   filter: alpha(opacity=100);
 }
@@ -1034,9 +1035,10 @@ a.carousel-control span.fa {
 }
 
 .btn-lg {
-  font-size: 14px;
+  font-size: 20px;
   border-radius: 4px;
   padding: 16px 32px;
+  font-weight: bold;
 }
 .btn-lg.btn-round {
   padding: 17px 32px;
@@ -1065,8 +1067,7 @@ a.carousel-control span.fa {
 .btn-xs.btn-round {
   padding: 6px 10px;
 }
-.btn-xs.btn-simple {
-  padding: 7px 10px;
+.btn-xs.btn-simple { 
 }
 
 .btn-wd {
@@ -1558,7 +1559,7 @@ a.carousel-control span.fa {
 
 .navbar {
   border: 0;
-  font-size: 16px;
+  font-size: 20px;
 }
 .navbar .navbar-brand {
   margin: 10px 0px;
@@ -1637,6 +1638,7 @@ a.carousel-control span.fa {
 }
 .navbar-default .navbar-brand {
   color: #434547;
+  font-weight: bold;
 }
 .navbar-default:not(.navbar-transparent) .btn-default:hover {
   color: #c5a47e;
@@ -2354,7 +2356,7 @@ a.carousel-control span.fa {
   text-transform: uppercase;
   margin: 0;
   letter-spacing: 1px;
-  font-weight: 600;
+  font-weight: bold;
   color: #777777;
 }
 .card-price .subtitle-header {
@@ -2479,7 +2481,8 @@ a.carousel-control span.fa {
 .section-presentation-page h1 {
   font-weight: 400;
   font-size: 3.6em;
-  text-shadow: -2px 2px 0px rgba(0, 0, 0, 0.3), -2px 4px 2px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  /* text-shadow: -2px 2px 0px rgba(0, 0, 0, 0.3), -2px 4px 2px rgba(0, 0, 0, 0.1); */
 }
 .section-header h5,
 .section-header-blog h5,

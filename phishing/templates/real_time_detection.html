@@ -4,19 +4,114 @@
     <div class="container">
         <div class="text-area">
             <div class="title">
-                <h1 id="NSK">실시간 탐지 중</h1>
+                <h1 id="NSK">피싱 실시간 탐지하기</h1>
                 <div class="separator separator-info">✻</div>
                 <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
+                    {% comment %} 스피너 대기중일 때는 스피너 안 보이게, 버튼 누르면 스피너 실행 : id="loadingSpinner" style="display: none;" 
+                                    현재 미완성...{% endcomment %}
+                    <!-- Loading... -->
+                    <span class="visually-hidden">실행 중...</span>
                 </div>
                 <br>
                 <br>
-                {% comment %} 중지해서 홈으로 이동 {% endcomment %}
-                <button href="/" class="btn btn-fill btn-lg" onclick="location.href='/'" ><h3 id="NSK">중지하기</h3></button>
+                <!-- 버튼 누르면 탐지 시작 -->
+                <div class="button-container justify-content-center">
+                    <form id="startDetectionForm" method="post" action="{% url 'phishing:real_time_detection' %}">
+                        {% csrf_token %}
+                        <button class="btn btn-info btn-fill btn-lg" type="submit"><h3 id="NSK">탐지 시작하기</h3></button>
+                        {% comment %} 중지해서 홈으로 이동 {% endcomment %}
+                    </form>
+                    <button href="/" class="btn btn-fill btn-lg" onclick="location.href='/'"><h3 id="NSK">중지하기</h3></button>
+                </div>
+                <!-- {% comment %} 중지해서 홈으로 이동 {% endcomment %}
+                <button href="/" class="btn btn-fill btn-lg" onclick="location.href='/'" ><h3 id="NSK">중지하기</h3></button> -->
             </div>
                 
         </div>
     </div>
     
 </div>
+
+<!-- 탐지 시작하기 버튼 누르면 스피너 활성화 -->
+{% comment %} <script>
+    function startDetection() {
+        // 버튼 클릭 시 스피너 활성화
+        document.getElementById('loadingSpinner').style.display = 'inline-block';
+
+        // AJAX 또는 Fetch API를 사용하여 서버에 POST 요청 보내기
+        fetch('/real_time_detection/', {
+            method: 'POST',
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);  // 서버에서 반환한 데이터 확인
+
+            // 스피너 감추기
+            document.getElementById('loadingSpinner').style.display = 'none';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+
+            // 스피너 감추기
+            document.getElementById('loadingSpinner').style.display = 'none';
+        });
+    }
+</script> {% endcomment %}
+
+<!-- <script>
+    // 페이지 로드 시 실행
+    document.addEventListener('DOMContentLoaded', function() {
+        // 로딩 스피너 감추기
+        document.getElementById('loadingSpinner').style.display = 'none';
+    });
+
+    function startDetection() {
+        // 버튼 클릭 시 스피너 활성화
+        document.getElementById('loadingSpinner').style.display = 'inline-block';
+    }
+</script> -->
+
+<!-- <script>
+    function startDetection() {
+        // 버튼 클릭 시 스피너 활성화
+        document.getElementById('loadingSpinner').style.display = 'inline-block';
+
+        // AJAX 또는 Fetch API를 사용하여 서버에 HTTP POST 요청 보내기
+        fetch('/real_time_detection/', {
+            method: 'POST',
+            body: new FormData(document.getElementById('startDetectionForm')),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);  // 서버에서 반환한 데이터 확인
+            // 여기서 추가적인 작업 수행 가능
+        })
+        .catch(error => console.error('Error:', error))
+        .finally(() => {
+            // 스피너 비활성화
+            document.getElementById('loadingSpinner').style.display = 'none';
+        });
+    }
+</script> -->
+
+
+
+<!-- 페이지로 이동하면 탐지 모델 자동 실행 -->
+<!-- 1. 페이지가 로드되면 자동으로 POST 요청 보냄 -->
+<!-- 2.  views.py 함수에서 POST 요청 받아 모델 실행(real_time_detectoin->SimilarityView() -->
+<!-- <script>
+    // 페이지 로드 후 서버에 요청 보내기
+    document.addEventListener('DOMContentLoaded', function() {
+        // AJAX 또는 Fetch API를 사용하여 서버에 HTTP 요청 보내기
+        fetch('/real_time_detection/', {
+            method: 'POST',
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);  // 서버에서 반환한 데이터 확인
+        })
+        .catch(error => console.error('Error:', error));
+    });
+</script> -->
+<!-- 실시간 탐지 페이지로 이동하면 자동으로 실행되지만 실시간 탐지 페이지가 안 보임. 결과 나오면 바로 결과 페이지 반환 -->
 {% endblock %}
