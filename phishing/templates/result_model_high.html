@@ -7,7 +7,7 @@
             <div class="title">
                 <h1 id="NSK">탐지 결과</h1>
             <div class="separator separator-info">✻</div>
-            <h4 id="NSK" class="text-gray">{{ cat }} 탐지 결과입니다.</h4>
+            <h3 id="NSK" class="text-gray">{{ cat }} 탐지 결과입니다.</h3>
 
             <div class="section section-cards">
                 <div class="separator-container">        
@@ -55,12 +55,12 @@
                                         <!-- <div class="icon text-info">
                                             <i class="pe-7s-attention"></i>
                                         </div> -->
-                                        <h3 id="NSK" class="text-info">의심번호 목록</h3>
+                                        <h2 id="NSK" class="text-info">의심번호 목록</h2>
                                         <div style="display: inline-block;">
                                             <!-- <h2 id="NSK" class="number text-info" style="display: inline; color: your_color;">12</h2> -->
                                             <ul id="NSK" style="list-style: none; text-align: center;">
                                                 {% for data in inputs %}
-                                                    <li>{{ data.phone_number }}</li>
+                                                    <h3>{{ data.phone_number }}</h3>
                                                 {% endfor %}
                                             </ul>
                                         </div>
